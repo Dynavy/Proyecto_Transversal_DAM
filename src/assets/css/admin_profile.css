@@ -1,0 +1,194 @@
+body {
+    background-color: bisque;
+}
+
+.centrar {
+    text-align: center;
+    vertical-align: middle;
+    position: absolute;
+    top: 10%;
+    left: 26%;
+    width: 50%;
+}
+
+header {
+    background-color: rgb(202, 155, 92);
+    border-radius: 20px;
+}
+
+.update_a button {
+    cursor: pointer;
+    font-size: 13px;
+    text-decoration: underline;
+    background-color: rgba(116, 167, 116, 0.952);
+    padding: 0px 3px;
+}
+
+.update_a button:hover {
+    background-color: lightgray; /* Cambiar el color de fondo */
+    border-radius: 5px; /* Agregar bordes redondeados */
+}
+
+
+.texto_usuario {
+
+
+    width: 50%;
+    display: inline-block;
+    height: 50%;
+}
+
+
+.text1 {
+    display: inline-block;
+    background-color: brown;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+
+.header_usuario {
+    width: 100%;
+    background-color: chocolate;
+    border-radius: 6px;
+}
+
+
+.texto_derecha {
+    float: left;
+    margin-left: 10px;
+    margin-top: 6px;
+}
+
+footer {
+    margin-top: 10px;
+    background-color: rgb(21, 72, 144);
+    height: 250px;
+    border-radius: 20px;
+
+}
+
+.update_a button {
+    cursor: pointer;
+    font-size: 13px;
+    text-decoration: underline;
+    background-color: rgba(116, 167, 116, 0.952);
+    padding: 0px 3px;
+}
+
+.update_a button:hover {
+    background-color: lightgray;
+    border-radius: 5px; 
+}
+
+.update_class>h1 {
+    display: inline-block;
+    margin-right: 100px;
+    vertical-align: middle;
+    
+}
+
+.update_class>a {
+    display: inline-block;
+}
+
+.update_class > .update_a{
+    display: inline-block;
+    margin-left: 500px;
+    padding: 4px;
+ 
+}
+
+.update_a > button {
+    border-radius: 5px;
+}
+
+#img_fondo {
+    padding: 20px;
+    border-radius: 20px;
+    background-color: brown;
+}
+
+#Muro {
+    font-size: 30px;
+    padding-top: 100px;
+    margin-top: -0px;
+    font-style: italic;
+
+
+}
+
+
+.artistas {
+    width: 100%;
+}
+
+
+li {
+    width: 100%;
+    text-align: left;
+    margin-right: 320px;
+    margin-left: 600px;
+}
+
+#volver {
+    border: 1px solid black;
+    background-color:rgb(180, 180, 79);
+    padding: 10px;
+    color: blue;
+    border-radius: 5px;
+   
+   
+  }
+
+@media screen and (max-width: 900px) {
+    .centrar {
+        text-align: center;
+        vertical-align: middle;
+        position: absolute;
+        top: 10%;
+        left: 0%;
+        width: 100%;
+    }
+
+    
+    header {
+        width: 40%;
+        display: inline-block;
+        background-color: rgb(202, 155, 92);
+        margin-top: 50px;
+        height: 100%;
+        padding-top: 14px;
+    }
+
+    .header_usuario {
+        width: 100%;
+        background-color: chocolate;
+    }
+
+    footer {
+        background-color: rgb(21, 72, 144);
+        padding-top: 178px;
+        height: 165.1px;
+        display: inline-block;
+        width: 40%;
+        padding-bottom: 63px;
+        text-align: center;
+        vertical-align: middle;
+        margin-top: -290px;
+        margin-bottom: 100px;
+    }
+
+    #Muro {
+        font-size: 30px;
+        font-style: italic;
+        padding-top: 0;
+        margin-top: -40px;
+    }
+
+    li {
+        width: 100%;
+        text-align: left;
+        margin-left: 100px;
+    }
+}
