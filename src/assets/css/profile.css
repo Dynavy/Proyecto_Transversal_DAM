@@ -103,7 +103,7 @@ footer {
     padding: 0px 3px;
 }
 
-.update_a button:hover {
+.update_a > button:first-child:hover {
     background-color: lightgray;
     border-radius: 5px;
 }
@@ -114,13 +114,15 @@ footer {
     vertical-align: middle;
     
 }
-.update_class>a {
-    display: inline-block;
-}
+
 .update_class > .update_a{
     display: inline-block;
-    margin-left: 500px;
+    margin-left: 360px;
     padding: 4px;
+}
+
+.update_a > button:nth-child(2):hover{
+    background-color: red;
 }
 
 .update_a > button {

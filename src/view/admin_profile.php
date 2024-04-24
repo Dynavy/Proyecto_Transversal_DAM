@@ -21,6 +21,9 @@
                         <button onclick="window.location.href='update_profile.php'">
                             <p>EDIT PROFILE</p>
                     </button>
+                    <button onclick="window.location.href='update_profile.php';">
+                            <p>DELETE PROFILE</p>
+                        </button>
                     </div>
                 </div>
 

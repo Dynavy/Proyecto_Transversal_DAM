@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile</title> 
-    <link rel="stylesheet" href="../assets/css/profile.css"> 
+    <title>Profile</title>
+    <link rel="stylesheet" href="../assets/css/profile.css">
 </head>
 
 <body>
@@ -18,11 +18,15 @@
                 <div class="update_class">
                     <h1>Nombre Usuario</h1>
                     <div class="update_a">
-                    <button onclick="window.location.href='update_profile.php';">
+                        <button onclick="window.location.href='update_profile.php';">
                             <p>EDIT PROFILE</p>
                         </button>
+                        <button onclick="window.location.href='update_profile.php';">
+                            <p>DELETE PROFILE</p>
+                        </button>
                     </div>
-                </div>    
+                    
+                </div>
                 <div class="texto_derecha">
                     <img class="texto_derecha" src="../ASSETS/IMG/login_usuario.png" alt="login_user" width="120px">
                     <div class="texto_usuario">
@@ -36,21 +40,17 @@
 
             <div class="artistas">
                 <h2>Artista favorito</h2>
-                        <br>
-                        <br>
-                        <br>
-                        <br>
-                        
+                <br>
+                <br>
+                <br>
+                <br>
+
 
                 <h2>Mis eventos(...)</h2>
-                        <br>
-                        <br>
+                <br>
+                <br>
             </div>
-
-            
-           
         </header>
-
         <footer>
             <p id="Muro">
                 Muro público
@@ -58,9 +58,10 @@
             </p>
         </footer>
         <a href="index.php">
-                            <p id="volver">Volver a la página principal</p>
-            </a>
+            <p id="volver">Volver a la página principal</p>
+        </a>
     </div>
 
 </body>
+
 </html>

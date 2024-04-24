@@ -7,7 +7,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
  
     //Check button
     if(isset($_POST["login"])){
-        echo"<p>Login button is clicked.</p>";
+        
         $user->login();
     }
     if (isset($_POST["logout"])){
@@ -55,9 +55,9 @@ public function __construct(){
     //database connection
     $servername = "127.0.0.1";
     $username = "root";
-    $password = "";
+    $password = "root";
     $dbname = "ProyectoBD";
-    $db_port = 3306;
+    $db_port = 8889;
  
     try {
         $dsn = ("mysql:host=$servername;dbname=$dbname;port=$db_port");
