@@ -6,49 +6,25 @@ $user = new UserController();
 if($_SERVER["REQUEST_METHOD"] == "POST"){
  
     //Check button
-    if(isset($_POST["login"])){
-        
+    if(isset($_POST["login"])){   
         $user->login();
     }
     if (isset($_POST["logout"])){
-        echo "<p>Logout button is clicked.</p>";
         $user->logout();
     }
     if (isset($_POST["register"])){
-        echo "<p>Register button is clicked.</p>";
         $user->register();
     }
     if (isset($_POST["update"])){
-        echo "<p>Update button is clicked.</p>";
         $user->update();
+    }
+    if (isset($_POST["accept-delete"])){
+        $user->delete();
     }
  
 }
  
 class UserController{
- 
-   /* public function __construct(){
- 
-        //database connection
-        $servername = "127.0.0.1";
-        $username = "root";
-        $password = "root";
-        $dbname = "ProyectoBD";
-        $db_port = 8889;
- 
- 
-        $this->conn = new mysqli ($servername, $username, $password, $dbname, $db_port);
- 
-        //check connection
-        if ($this -> conn->connect_error){
-            die("Connection failed :". $this->conn->connect_error);
- 
- 
-        }
-        echo "Connected succesfully";
- 
-    }
-*/
 private $conn;
 public function __construct(){
  
@@ -68,7 +44,6 @@ public function __construct(){
       }
     }
     
-
     //update 
     public function update(): void {
 
@@ -83,6 +58,24 @@ public function __construct(){
             $stmt->bindParam(':old_username', $old_username, PDO::PARAM_STR);
             $stmt->execute();
             header("Location: ../view/profile.php");
+           }
+        catch(PDOException $e) {
+            echo "Connection failed: " . $e->getMessage();
+          }
+    }
+    public function delete(): void {
+        
+        echo "ssss";
+        $username = $_POST["username"];
+        $password = $_POST["password"];
+    
+        try {
+            $stmt = $this->conn->prepare("DELETE FROM Usuario WHERE Correo_electronico=:user AND Contrasena=:password");
+            $stmt->bindParam(':username', $username, PDO::PARAM_STR);
+            $stmt->bindParam(':password', $password, PDO::PARAM_STR);
+            $stmt->execute();
+
+            header("Location: ../view/index.php");
            }
         catch(PDOException $e) {
             echo "Connection failed: " . $e->getMessage();
