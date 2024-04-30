@@ -39,7 +39,6 @@ if (isset($_SESSION['error'])) {
                     <div class="moverInput">
                         <label>Email: </label><br>
                         <input id="usuario" type="text" placeholder="Introduce tus datos..." name="username">
-
                     </div>
                     <div class="moverInput">
                         <label for="pass">Contraseña:</label><br>

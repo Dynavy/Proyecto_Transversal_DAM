@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="../assets/css/admin_profile.css">
 </head>
 
-
 <body>
     <div class="centrar">
         <img id="img_fondo" src="../ASSETS/IMG/findurmusic.png" alt="logo_header_user" width="600px">
