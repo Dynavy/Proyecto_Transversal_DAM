@@ -7,9 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Profile</title>
     <link rel="stylesheet" href="../assets/css/admin_profile.css">
+    <script src="../assets/jQuery/jquery-3.7.1.min.js"></script>
+    <script src="../assets/js/deleteProfile.js" defer></script>
 </head>
 
 <body>
+
+    <div class="overlay" id="overlay"></div>
     <div class="centrar">
         <img id="img_fondo" src="../ASSETS/IMG/findurmusic.png" alt="logo_header_user" width="600px">
         <header>
@@ -19,12 +23,25 @@
                     <div class="update_a">
                         <button onclick="window.location.href='update_profile.php'">
                             <p>EDIT PROFILE</p>
-                    </button>
-                    <button onclick="window.location.href='update_profile.php';">
+                        </button>
+
+                        <button id="deleteButton">
                             <p>DELETE PROFILE</p>
                         </button>
+
                     </div>
                 </div>
+                
+                <div id="deleteProfile">
+                    <p>¿Estás seguro de que quieres borrar tu cuenta? Esta acción no se puede deshacer.</p>
+
+                    <form action="../controller/UserController.php" method="POST">
+                        <button id="accept-delete" name="accept-delete">Aceptar</button>
+                    </form>
+
+                    <button id="reject-delete" name="reject-delete">Denegar</button>
+                </div>
+
 
                 <div class="texto_derecha">
                     <img class="texto_derecha" src="../ASSETS/IMG/login_usuario.png" alt="login_user" width="120px">

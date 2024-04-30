@@ -21,7 +21,7 @@
                 <div class="update_class">
                     <h1>Nombre Usuario</h1>
                     <div class="update_a">
-                        <button onclick="window.location.href='update_profile.php';">
+                        <button onclick="window.location.href='index.php';">
                             <p>EDIT PROFILE</p>
                         </button>
 
@@ -31,15 +31,18 @@
                     </div>
 
                 </div>
+                
                 <div id="deleteProfile">
                     <p>¿Estás seguro de que quieres borrar tu cuenta? Esta acción no se puede deshacer.</p>
-                
-                     <form action="../controller/UserController.php" method="POST">
+
+                    <form action="../controller/UserController.php" method="POST">
                         <button id="accept-delete" name="accept-delete">Aceptar</button>
                     </form>
 
                     <button id="reject-delete" name="reject-delete">Denegar</button>
                 </div>
+
+
                 <div class="texto_derecha">
                     <img class="texto_derecha" src="../ASSETS/IMG/login_usuario.png" alt="login_user" width="120px">
                     <div class="texto_usuario">

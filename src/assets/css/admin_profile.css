@@ -136,6 +136,35 @@ li {
    
   }
 
+  #deleteProfile{
+    position: fixed;    
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    z-index: 9998;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+ 
+}
+
+#accept-delete:hover {
+
+    background-color: red;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none; 
+    z-index: 9998;
+}
+
 @media screen and (max-width: 900px) {
     .centrar {
         text-align: center;
@@ -186,4 +215,5 @@ li {
         text-align: left;
         margin-left: 100px;
     }
+
 }
