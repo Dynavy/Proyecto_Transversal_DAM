@@ -11,6 +11,9 @@ body {
     width: 50%;
 }
 
+.update_a ul li button {
+    margin: 2px;
+}
 header {
     background-color: rgb(202, 155, 92);
     border-radius: 20px;
@@ -22,6 +25,7 @@ header {
     text-decoration: underline;
     background-color: rgba(116, 167, 116, 0.952);
     padding: 0px 3px;
+    text-decoration: none;
 }
 
 .update_a button:hover {
@@ -72,6 +76,7 @@ footer {
     text-decoration: underline;
     background-color: rgba(116, 167, 116, 0.952);
     padding: 0px 3px;
+    text-decoration: none;
 }
 
 .update_a > button:first-child:hover {

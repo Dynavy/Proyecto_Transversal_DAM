@@ -31,7 +31,7 @@
 
                     </div>
                 </div>
-                
+
                 <div id="deleteProfile">
                     <p>¿Estás seguro de que quieres borrar tu cuenta? Esta acción no se puede deshacer.</p>
 
@@ -53,12 +53,14 @@
                 </div>
             </div>
             <div class="artistas">
-                <h2>Herramientas Admin</h2>
-                <ul>
-                    <li>Usuarios Administradores</li>
-                    <li>Posts Administrados</li>
-                    <li>Reportes Financieros</li>
-                </ul>
+                <h2>Admin manage tools:</h2>
+                <div class="update_a">
+                    <ul>
+                        <li><button>CREATE EVENT</button></li>
+                        <li><button>UPDATE EVENT</button></li>
+                        <li><button>DELETE EVENT</button></li>
+                    </ul>
+                </div>
             </div>
             <br>
         </header>
