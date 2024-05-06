@@ -70,6 +70,35 @@ $("#sliderExercici2").slick({
         }
     ]
 })
+
+$(".eventSlider").slick({
+
+    dots: false,
+    infinite: true,
+    speed: 300,
+    slidesToShow: 3,
+    autoplay: true,
+    autoplaySpeed: 2000,
+    slidesToScroll: 1,
+    responsive:[
+        {
+            breakpoint: 800,
+            settings: {
+                slidesToShow: 2
+
+            }
+        },
+        {
+
+            breakpoint: 600,
+            settings: { 
+                slidesToShow: 1,
+                arrows: false,
+                dots: true
+            }
+        }
+    ]
+})
 //COOKIES
 
 $(document).ready(function(){

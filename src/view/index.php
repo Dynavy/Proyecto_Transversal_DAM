@@ -184,14 +184,17 @@ session_start();
     </ul>
 </nav>
 
-<h1 id="descubre"> ¡Consulta información sobre conciertos!</h1>
 
-<div class="flex-container">
 
-    <?php
+    <h1 id="descubre"> ¡Consulta información sobre conciertos!</h1>
 
-    if (isset($_SESSION['logged']) && $_SESSION['logged']) {
-        echo '
+
+    <div class="flex-container eventSlider">
+
+        <?php
+
+        if (isset($_SESSION['logged']) && $_SESSION['logged']) {
+            echo '
         <div class="c1">
         <a href="esdeveniment.php">
          <h1>Concierto 1</h1>
@@ -203,8 +206,8 @@ session_start();
         </a>
         </div>
         ';
-    } else {
-        echo '
+        } else {
+            echo '
         <div class="c1">
 
         <h1>Concierto 1</h1>
@@ -213,23 +216,28 @@ session_start();
          <img src="../assets/img/festival1.jpeg" width="550" height="350" alt="concierto1img">
         
         </div>';
-    }
+        }
 
-    ?>
+        ?>
 
 
-    <div class="c2">
-        <h1>Concierto 2</h1>
-        <img src="../assets/img/festival2.jpeg" width="550" height="350" alt="concierto2img">
+        <div class="c2">
+            <h1>Concierto 2</h1>
+            <img src="../assets/img/festival2.jpeg" width="550" height="350" alt="concierto2img">
+        </div>
+
+        <div class="c3">
+            <h1>Concierto 3</h1>
+            <img src="../assets/img/festival3.jpeg" width="550" height="350" alt="concierto3img">
+        </div>
+   
+        <div class="c3">
+            <h1>Concierto 4</h1>
+            <img  width="550" height="350" alt="concierto4img">
+        </div>
+   
     </div>
-
-    <div class="c3">
-        <h1>Concierto 3</h1>
-        <img src="../assets/img/festival3.jpeg" width="550" height="350" alt="concierto3img">
-    </div>
-
-
-</div>
+  
 
 <h1 id="descubre"> ¡Asiste a los mejores conciertos!</h1>
 
@@ -269,7 +277,7 @@ session_start();
 
 <div id="sliderExercici2">
     <div class="conciertos_slick">
- 
+
         <h3>Talentoso músico emergiendo en<br> la escena con su sonido innovador</h3>
 
         <img src="../ASSETS/IMG/artista1.jpg" width="630px" height="360px" alt="Imagen artista 1">
