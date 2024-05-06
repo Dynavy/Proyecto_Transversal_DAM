@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Profile</title>
     <link rel="stylesheet" href="../assets/css/admin_profile.css">
-    <link rel="stylesheet" href="../assets/css/modal.css">
     <script src="../assets/jQuery/jquery-3.7.1.min.js"></script>
     <script src="../assets/js/deleteProfile.js" defer></script>
     <script src="../assets/js/modal.js" defer></script>
