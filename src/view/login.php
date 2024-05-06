@@ -34,7 +34,7 @@ if (isset($_SESSION['error'])) {
         <div class="center">
             <form id="loginForm" action="../controller/UserController.php" method="POST">
                 <h1>INICIAR SESIÓN</h1>
-                <img id="logo" src="../ASSETS/IMG/findurmusic.png" alt="logo" alt="logo" width="330" height="110">
+                <img id="logo" src="../ASSETS/IMG/findurmusic.png" alt="logo" alt="logo" width="210" height="200">
                 <div class="center_text">
                     <div class="moverInput">
                         <label>Email: </label><br>

@@ -1,27 +1,22 @@
-*{
+* {
     box-sizing: border-box;
-}
-
-.contenidor-relative > input {
-    margin-left: 20px;
 }
 
 header {
     margin: 0;
     background-color: beige;
-   
-   
+
+
 }
+
 .contenidor-relative {
     position: relative;
-   
+    max-height: 150px;
 }
 
 body {
     background-color: rgb(236, 236, 160);
     margin: 0;
-    
-    
 }
 
 
@@ -38,25 +33,29 @@ body {
 div#sliderExercici {
     padding: 5px;
 }
+
 #descubre {
- font-family: Verdana, Geneva, Tahoma, sans-serif;
- color: rgb(255, 94, 0);
- text-align: center;
- margin: auto;
- margin-bottom: 30px;
- padding: 20px;
- margin-top: 30px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: rgb(255, 94, 0);
+    text-align: center;
+    margin: auto;
+    margin-bottom: 30px;
+    padding: 20px;
+    margin-top: 30px;
 }
 
 .c1,
 .c2,
 .c3 {
     padding: 10px 15px;
- 
+
     border-radius: 30px;
 
 }
-.c3 img, .c2 img, .c1 img {
+
+.c3 img,
+.c2 img,
+.c1 img {
     border-radius: 30px;
 }
 
@@ -68,9 +67,12 @@ nav div {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-top: 2px;
+
 }
 
-.imgRegisters, .imgPerfil {
+.imgRegisters,
+.imgPerfil {
     padding: 2px;
 }
 
@@ -81,21 +83,11 @@ nav input {
     background-color: beige;
 }
 
-nav img {
-    margin-top: 3px;
-}
-
 nav button:hover {
-    background-color: lightgray; /* Cambiar el color de fondo */
-  
-}
+    background-color: lightgray;
+    /* Cambiar el color de fondo */
 
-#logo {
-    border-radius: 30px;
-    padding: 15px 0px;
-    margin-left: 15px;
 }
-
 
 .btnRegisters {
     display: flex;
@@ -109,26 +101,28 @@ nav button:hover {
 
 .btnRegisters p {
     padding: 0px;
-    margin-right: 10px; 
+    margin-right: 10px;
     line-height: normal;
-    align-self: center; 
+    align-self: center;
 }
 
 .btnRegisters button {
     background-color: transparent;
-    border: none; 
+    border: none;
     cursor: pointer;
 }
 
 .btnRegisters button:hover {
-    background-color: rgb(236, 250, 187); /* Cambiar el color de fondo */
-    border-radius: 5px; /* Agregar bordes redondeados */
+    background-color: rgb(236, 250, 187);
+    /* Cambiar el color de fondo */
+    border-radius: 5px;
+    /* Agregar bordes redondeados */
 }
 
 .btnRegisters img {
     width: 20px;
     margin-left: 15px;
-   vertical-align: middle;
+    vertical-align: middle;
 }
 
 .links {
@@ -141,7 +135,7 @@ nav button:hover {
 }
 
 .links button img {
-    margin-bottom: 5px; 
+    margin-bottom: 5px;
     margin-left: 3px;
 }
 
@@ -156,7 +150,7 @@ nav button:hover {
 
 
 .links button:hover {
-    background-color: lightgray; 
+    background-color: lightgray;
     border-radius: 15px;
     text-decoration: none;
     cursor: pointer;
@@ -174,13 +168,12 @@ nav button:hover {
     display: flex;
     right: 16.5px;
     margin-bottom: 80px;
-    
     position: absolute;
-    
+
 }
 
 
-.contenedor{
+.contenedor {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -192,6 +185,7 @@ nav button:hover {
     border-radius: 6px;
     text-decoration: none;
 }
+
 .flex-item-left {
     background-color: #f1f1f1;
     padding: 10px;
@@ -204,14 +198,14 @@ nav button:hover {
     flex: 50%;
 }
 
-.contenedor a{
+.contenedor a {
     color: darkgoldenrod;
     padding: .5em 1em;
     box-sizing: border-box;
     border-radius: 20px;
 }
 
-.contenedor a:hover{
+.contenedor a:hover {
     background: black;
     color: darkgoldenrod;
     box-sizing: border-box;
@@ -220,69 +214,76 @@ nav button:hover {
 
 .elemento {
     box-sizing: border-box;
-   
+
 }
 
-.dropdowncontent1{
-   
-    display: none;
-    width: 500px;
-   
-}
+.dropdowncontent1 {
 
-.dropdowncontent1 a{
-    color: darkgoldenrod;
-    text-decoration: none;
-    background-color: black;
-   
-}
-.dropdowncontent2{
     display: none;
     width: 500px;
 
+}
+
+.dropdowncontent1 a {
+    color: darkgoldenrod;
+    text-decoration: none;
+    background-color: black;
 
 }
-.dropdowncontent2 a{
+
+.dropdowncontent2 {
+    display: none;
+    width: 500px;
+
+
+}
+
+.dropdowncontent2 a {
     color: darkgoldenrod;
     text-decoration: none;
     background-color: black;
 }
+
 .dropdown:hover .dropdowncontent1 {
     display: block;
-    margin-top:15px;
+    margin-top: 15px;
     position: absolute;
     margin-left: -39px;
-   
+
 }
+
 .dropdown:hover .dropdowncontent2 {
     display: block;
     margin-top: 48px;
     position: absolute;
     margin-left: -39px;
 }
+
 footer {
     background-color: rgb(235, 197, 148);
     border-radius: 15px;
     margin-top: 15px;
     font-size: 12px;
-    border: 1px solid;  
+    border: 1px solid;
     margin: 5px;
     margin-top: 15px;
-   
+
 }
 
 footer h1 {
     color: rgb(255, 94, 0);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
 footer h2 {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
 footer p {
     font-size: 13px;
     font-weight: bold;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    
+
 }
 
 .alinear1 {
@@ -298,34 +299,38 @@ footer p {
     display: inline-block;
     width: 52%;
     vertical-align: top;
-  
+
 }
+
 .alinear3 {
     display: inline-block;
     vertical-align: top;
-   margin-top: 10px;
-  
+    margin-top: 10px;
+
 }
+
 .alinearTextos {
-   width: 50%;
-   text-align: center;
-   vertical-align: top;
-   
- 
+    width: 50%;
+    text-align: center;
+    vertical-align: top;
+
+
 }
 
 
-.conciertos_slick > h3{
-
+.conciertos_slick>h3 {
     text-align: center;
 
 }
 
-#sliderExercici2 > .conciertos_slick > h3{
-
+#sliderExercici2>.conciertos_slick>h3 {
     text-align: center;
-    
 
+}
+
+#logo {
+    margin-left: 40px;
+    margin-bottom: 25px;
 }
 
 
@@ -333,20 +338,21 @@ footer p {
     #descubre {
         font-family: Verdana, Geneva, Tahoma, sans-serif;
         color: rgb(255, 94, 0);
-        max-width: 100%; 
+        max-width: 100%;
         text-align: center;
         margin: auto;
         margin-bottom: 10px;
-       }
+    }
 
-       .links {
+    .links {
         margin-right: 25px;
         display: flex;
         flex-wrap: wrap;
         justify-content: flex-start;
         margin-top: 20px;
     }
-       #logo {
+
+    #logo {
         border-radius: 30px;
         padding: 12px 0px;
         width: 250px;
@@ -366,7 +372,8 @@ footer p {
         margin-left: 65px;
         margin-right: -57px;
     }
-    .dropdown{
+
+    .dropdown {
         width: 80px;
         margin-left: 0px;
     }
@@ -393,29 +400,33 @@ footer p {
         width: 100%;
     }
 
-    .c2{
-        width: 48%;
-    }
-    .c2, .c3{
-        margin-top: 10px;
-        
-    }
-    .c3{
+    .c2 {
         width: 48%;
     }
 
-    .c1 img{
+    .c2,
+    .c3 {
+        margin-top: 10px;
+
+    }
+
+    .c3 {
+        width: 48%;
+    }
+
+    .c1 img {
         width: 500px;
         height: 300px;
         margin-bottom: 15px;
     }
-    .c2 img{
+
+    .c2 img {
         width: 350px;
         height: 300px;
 
     }
 
-    .c3 img{
+    .c3 img {
         width: 350px;
         height: 300px;
 
@@ -442,6 +453,7 @@ footer p {
         text-align: right;
         margin-left: -20px;
     }
+
     .flex-container {
         display: flex;
         flex-wrap: wrap;
@@ -450,14 +462,14 @@ footer p {
         background-color: beige;
         text-align: center;
         padding: 35px;
-        
+
     }
-    
+
 }
 
 /* MENU DE COOKIES*/
 #cookies {
-    position: fixed;    
+    position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -465,32 +477,39 @@ footer p {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    z-index: 9999; /* Asegura que el mini menú esté por encima del contenido */
-    display: block; /* Por defecto, mostrar el mini menú */
-}   
+    z-index: 9999;
+    /* Asegura que el mini menú esté por encima del contenido */
+    display: block;
+    /* Por defecto, mostrar el mini menú */
+}
 
 /* Se encarga del fondo gris detrás del menú.
     Se ejecuta antes del body*/
 
 body::before {
-    content: ''; /* Crea un fondo difuso */
+    content: '';
+    /* Crea un fondo difuso */
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Color de fondo semi-transparente */
-    z-index: 9998; /* Asegura que el fondo difuso esté detrás del mini menú */
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Color de fondo semi-transparente */
+    z-index: 9998;
+    /* Asegura que el fondo difuso esté detrás del mini menú */
 }
 
 body.cookiesAccepted::before,
 body.cookiesAccepted #cookies {
-    display: none; /* Oculta tanto el fondo difuso como el mini menú cuando se aceptan las cookies */
+    display: none;
+    /* Oculta tanto el fondo difuso como el mini menú cuando se aceptan las cookies */
 }
 
 body.cookiesRejected::before,
 body.cookiesRejected #cookies {
-    display: none; /* Oculta tanto el fondo difuso como el mini menú cuando se aceptan las cookies */
+    display: none;
+    /* Oculta tanto el fondo difuso como el mini menú cuando se aceptan las cookies */
 }
 
 /* Botones del mini menu*/
@@ -508,7 +527,7 @@ body.cookiesRejected #cookies {
 #accept-cookies:hover,
 #reject-cookies:hover {
     background-color: #468849;
-    
+
 }
 
 #accept-cookies-notification {

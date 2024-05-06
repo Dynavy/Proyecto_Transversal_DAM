@@ -3,7 +3,7 @@
 session_start();
 
 // Verificar si el usuario está logueado
-if(isset($_SESSION['logged'])) {
+if (isset($_SESSION['logged'])) {
     // El usuario está logueado, limpiar variables de sesión
     session_unset(); // Elimina todas las variables de sesión
     session_destroy(); // Destruye la sesión actual
@@ -11,9 +11,8 @@ if(isset($_SESSION['logged'])) {
     // Redirigir a la página de inicio de sesión
     header("Location: logout.php");
     exit;
-} 
+}
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,29 +24,18 @@ if(isset($_SESSION['logged'])) {
 </head>
 
 <body>
+    <div class="container">
+        <h1>LOGOUT</h1>
 
-                <h1>LOGOUT</h1>
+        <p>
+            Te has deslogueado correctamente de la sesión.
+        </p>
 
-                <p>
-                    Te has deslogueado correctamente de la sesión.
-                </p>
-
-                <br>
-                <a href="index.php">
-                        <p id="volver">Volver a la página principal</p>
-                    </a>
-                
-
-
-
-
-
-
-
-
-
-
-
+        <br>
+        <a href="index.php">
+            <p id="volver">Volver a la página principal</p>
+        </a>
+    </div>
 </body>
 
 </html>

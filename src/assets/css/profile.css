@@ -7,7 +7,6 @@ body {
     text-align: center;
     vertical-align: middle;
     position: absolute;
-    top: 10%;
     left: 26%;
     width: 50%;
 
@@ -43,13 +42,6 @@ header {
 .texto_derecha {
     float: left;
     margin-left: 20px;
-}
-
-
-#img_fondo {
-    padding: 20px;
-    border-radius: 20px;
-    background-color: brown;
 }
 
 .artistas h2 {
@@ -186,10 +178,13 @@ footer {
  
 }
 
+button#accept-delete{
+    margin: 3px;
+}
 #accept-delete:hover {
-
     background-color: red;
 }
+
 
 .overlay {
     position: fixed;

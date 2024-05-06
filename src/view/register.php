@@ -30,7 +30,7 @@ if (isset($_SESSION['error'])) {
         <div class="center">
             <form id="registerForm" action="../controller/UserController.php" method="POST">
                 <h1>REGISTRARSE</h1>
-                <img id="logo" src="../ASSETS/IMG/findurmusic.png" alt="logo" alt="logo" width="330" height="110">
+                <img id="logo" src="../ASSETS/IMG/findurmusic.png" alt="logo" alt="logo" width="210" height="200">
                 <div class="center_text">
                     <div class="moverInput">
                         <label>Email: </label><br>
@@ -46,8 +46,8 @@ if (isset($_SESSION['error'])) {
                     </div>
 
                     <div class="moureBotons">
-                        <input type="submit" value="Registre" name="register">
-                        <input type="reset" value="Clear form">
+                        <input type="submit" value="Registrar" name="register">
+                        <input type="reset" value="Limpiar formulario">
                     </div>
                     <a href="index.php">
                         <p id="volver">Volver a la página principal</p>

@@ -34,9 +34,9 @@ session_start();
 
     <nav>
         <div class="contenidor-relative">
-
-            <img id="logo" src="../assets/img/findurmusic.png" alt="logo" width="300" height="120">
-            <input type="text" placeholder="Busca información...">
+           
+            <img id="logo" src="../assets/img/findurmusic.png" alt="logo" width="210" height="220">
+            <input type="text" placeholder="  Busca información...">
             <?php
 
             if (isset($_SESSION['logged']) && $_SESSION['logged']) {
@@ -147,9 +147,6 @@ session_start();
             }
             ?>
             <div class="links">
-
-
-
                 <button>TWITTER
                     <img src="../assets/img/twitter.png" width="20" height="20" alt="twitterImg">
                 </button>

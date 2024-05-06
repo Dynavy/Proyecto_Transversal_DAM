@@ -29,7 +29,7 @@ if (isset($_SESSION['error'])) {
         <div class="center">
             <form id="adminRegisterForm" action="../controller/UserController.php" method="POST">
                 <h1>REGISTRO ADMIN</h1>
-                <img id="logo" src="../ASSETS/IMG/findurmusic.png" alt="logo" width="330" height="110">
+                <img id="logo" src="../ASSETS/IMG/findurmusic.png" alt="logo" width="210" height="200">
                 <div class="center_text">
                     <div class="moverInput">
                         <label>Email:</label><br>
@@ -40,7 +40,7 @@ if (isset($_SESSION['error'])) {
                         <input type="password" id="password" name="password" placeholder="Escribe la contraseña...">
                     </div>
                     <div class="moverInput">
-                        <label for="pass">Confirmar Contraseña:</label><br>
+                        <label for="pass">Confirmar contraseña:</label><br>
                         <input type="password" id="confirm_password" name="confirm_password"
                             placeholder="Confirma la contraseña...">
                     </div>
