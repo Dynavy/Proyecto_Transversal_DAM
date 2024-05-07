@@ -235,7 +235,10 @@ nav button:hover {
     display: none;
     width: 500px;
 
+}
 
+ul {
+    list-style-type: none;
 }
 
 .dropdowncontent2 a {
