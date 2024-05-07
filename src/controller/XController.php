@@ -2,12 +2,13 @@
 require_once 'Database.php';
 session_start();
 
+
 //Check if form is submitted
 $event = new AdminController();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     //Check button
-    if (isset($_POST["login"])) {
+    if (isset($_POST["createEvent"])) {
         $event->create();
     }
     if (isset($_POST["update"])) {
@@ -29,16 +30,27 @@ class AdminController {
 
     public function create(): void {
 
-        unset($_SESSION["error"]);
         $eventName = $_POST["eventName"];
-        $eventPrice = $_POST["eventPrice"];
         $eventLocation = $_POST["eventLocation"];
-        $eventArtist = $_POST["eventArtis"];
+        $eventType = $_POST["eventType"];
 
-       
-
-            exit();
+        $stmt = $this->conn->prepare("INSERT INTO EVENTO (Nombre, Localizacion, Tipo) VALUES (:eventName, :eventLocation, :eventType)");
+        $stmt->bindParam(':eventName', $eventName, PDO::PARAM_STR);
+        $stmt->bindParam(':eventLocation', $eventLocation, PDO::PARAM_STR);
+        $stmt->bindParam(':eventType', $eventType, PDO::PARAM_STR);
+        try {
+            // Ejecutar la consulta
+            $stmt->execute();
+            echo "Evento creado correctamente.";
+           
+        } catch (PDOException $e) {
+            die("Error en la inserción del evento: " . $e->getMessage());
         }
+        echo '<script>window.location.href = "../view/admin_profile.php";</script>';
+        exit();
+     
+        
+    }
     }
 
 
