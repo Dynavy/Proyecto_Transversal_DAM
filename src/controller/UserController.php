@@ -50,7 +50,7 @@ class UserController
             $stmt->bindParam(':new_password', $new_password, PDO::PARAM_STR);
             $stmt->bindParam(':old_username', $old_username, PDO::PARAM_STR);
             $stmt->execute();
-            header("Location: ../view/profile.php");
+            echo '<script>window.location.href = "../view/profile.php";</script>';
         } catch (PDOException $e) {
             echo "Connection failed: " . $e->getMessage();
         }
@@ -67,7 +67,7 @@ class UserController
         } catch (PDOException $e) {
             echo "Connection failed: " . $e->getMessage();
         }
-        header("Location: ../view/index.php");
+        echo '<script>window.location.href = "../view/index.php";</script>';
     }
 
     public function login(): void
@@ -100,14 +100,14 @@ class UserController
                     $_SESSION["user"] = $username;
                     $_SESSION["admin"] = true; // Establecer una bandera de sesión para administrador
                     $conn = null;
-                    header("Location: ../view/admin_profile.php"); // Redirigir al panel de administrador
+                    echo '<script>window.location.href = "../view/admin_profile.php";</script>'; // Redirigir al panel de administrador
                     exit();
                 } else {
                     // Autenticación exitosa para el usuario normal
                     $_SESSION["logged"] = true;
                     $_SESSION["user"] = $username;
                     $conn = null;
-                    header("Location: ../view/profile.php"); // Redirigir al panel de usuario normal
+                    echo '<script>window.location.href = "../view/profile.php";</script>'; // Redirigir al panel de usuario normal
                     exit();
                 }
             } else {
@@ -115,7 +115,7 @@ class UserController
                 $_SESSION["logged"] = false;
                 $_SESSION["error"] = "Usuario o contraseña incorrectos";
                 $conn = null;
-                header("Location: ../view/login.php");
+                echo '<script>window.location.href = "../view/login.php";</script>';
                 exit();
             }
         } catch (PDOException $e) {
@@ -134,7 +134,7 @@ class UserController
         //destroy session
         session_destroy();
         //redirect to index page
-        header("Location: ../view/index.php");
+        echo '<script>window.location.href = "../view/index.php";</script>';
 
     }
 
@@ -160,9 +160,9 @@ class UserController
             if ($esAdmin) {
                 $_SESSION["admin"] = true; // Establecer una bandera de sesión para administrador
 
-                header("Location: ../view/admin_register.php");
+                echo '<script>window.location.href = "../view/admin_register.php";</script>';
             } else {
-                header("Location: ../view/register.php");
+                echo '<script>window.location.href = "../view/register.php";</script>';
             }
 
             exit();
@@ -181,15 +181,15 @@ class UserController
             if ($esAdmin) {
                 $_SESSION["admin"] = true; // Establecer una bandera de sesión para administrador
 
-                header("Location: ../view/index.php");
+                echo '<script>window.location.href = "../view/index.php";</script>';
             } else {
-                header("Location: ../view/index.php");
+                echo '<script>window.location.href = "../view/index.php";</script>';
             }
             exit();
         } else {
             // Error en la consulta SQL, mostrar un mensaje de error
             $_SESSION["error"] = "Registration failed. Please try again later.";
-            header("Location: ../view/register.php");
+            echo '<script>window.location.href = "../view/register.php";</script>';
             exit();
         }
     }
