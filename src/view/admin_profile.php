@@ -76,19 +76,25 @@
         <div class="modal-content">
             <span class="close">&times;</span>
 
-            <form id="eventForm" action="process_event.php" method="POST">
+            <form id="eventForm" action="XController.php" method="POST">
 
                 <label for="nombre_concierto">Nombre del Concierto:</label><br>
-                <input type="text" id="nombre_concierto" name="nombre_concierto"><br>
+                <input type="text" id="nombre_concierto" name="eventName"><br>
 
                 <label for="precio_entradas">Precio de Entradas:</label><br>
-                <input type="text" id="precio_entradas" name="precio_entradas"><br>
+                <input type="text" id="precio_entradas" name="eventPrice"><br>
+
+                <label for="tipo_evento">Tipo de evento:</label><br>
+                <input type="text" id="tipo_evento" name="eventType"><br>
+
+                <label for="localizacion_evento">Localizacion del evento:</label><br>
+                <input type="text" id="localizacion_evento" name="eventLocation"><br>
 
                 <label for="info_concierto">Información del Concierto:</label><br>
                 <textarea id="info_concierto"  rows="5" cols="50" name="info_concierto"></textarea><br>
 
                 <label for="artistas">Artistas/Grupos:</label><br>
-                <textarea type="text" id="artistas" name="artistas"></textarea><br>
+                <textarea type="text" id="artistas" name="eventArtists"></textarea><br>
 
                 <input type="submit" value="Crear Evento">
             </form>
