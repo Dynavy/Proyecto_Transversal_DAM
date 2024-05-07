@@ -76,7 +76,7 @@
         <div class="modal-content">
             <span class="close">&times;</span>
 
-            <form id="eventForm" action="XController.php" method="POST">
+            <form id="eventForm" action="../controller/XController.php" method="POST">
 
                 <label for="nombre_concierto">Nombre del Concierto:</label><br>
                 <input type="text" id="nombre_concierto" name="eventName"><br>
@@ -96,7 +96,7 @@
                 <label for="artistas">Artistas/Grupos:</label><br>
                 <textarea type="text" id="artistas" name="eventArtists"></textarea><br>
 
-                <input type="submit" value="Crear Evento">
+                <input type="submit" value="Crear Evento" name="createEvent">
             </form>
         </div>
     </div>
