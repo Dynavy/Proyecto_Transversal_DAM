@@ -1,6 +1,7 @@
 <?php
-
+require_once 'Database.php';
 session_start();
+
 //Check if form is submitted
 $user = new UserController();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -27,24 +28,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 class UserController
 {
     private $conn;
+
     public function __construct()
     {
-
-        //database connection
-        $servername = "127.0.0.1";
-        $username = "root";
-        $password = "";
-        $dbname = "ProyectoBD";
-        $db_port = 3306;
-
-        try {
-            $dsn = ("mysql:host=$servername;dbname=$dbname;port=$db_port");
-            $this->conn = new PDO($dsn, $username, $password);
-            $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        } catch (PDOException $e) {
-            echo "Connection failed: " . $e->getMessage();
-        }
+        $db = new Database();
+        $this->conn = $db->getConnection();
     }
+
 
     //update 
     public function update(): void
