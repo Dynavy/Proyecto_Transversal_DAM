@@ -1,6 +1,6 @@
 $("#sliderExercici").slick({
 
-    dots: false,
+    dots: true,
     infinite: true,
     speed: 300,
     slidesToShow: 3,
@@ -44,7 +44,7 @@ $("#sliderExercici").slick({
 
 $("#sliderExercici2").slick({
 
-    dots: false,
+    dots: true,
     infinite: true,
     speed: 300,
     slidesToShow: 3,
@@ -73,7 +73,7 @@ $("#sliderExercici2").slick({
 
 $(".eventSlider").slick({
 
-    dots: false,
+    dots: true,
     infinite: true,
     speed: 300,
     slidesToShow: 3,
