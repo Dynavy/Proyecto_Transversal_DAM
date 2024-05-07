@@ -12,7 +12,7 @@
 <body>
     <div class="overlay" id="overlay"></div>
     <div class="centrar">
-        <img id="img_fondo" src="../ASSETS/IMG/findurmusic.png" alt="logo_header_user" width="300" height="270">
+        <img id="img_fondo" src="../ASSETS/IMG/findurmusic.png" alt="logo_header_user" width="320" height="300">
         <header>
             <div class="header_usuario">
                 <div class="update_class">
