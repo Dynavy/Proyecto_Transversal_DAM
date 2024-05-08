@@ -2,7 +2,6 @@
 require_once 'Database.php';
 session_start();
 
-
 //Check if form is submitted
 $event = new AdminController();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -19,7 +18,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 
-class AdminController {
+class AdminController
+{
     private $conn;
 
     public function __construct()
@@ -28,7 +28,8 @@ class AdminController {
         $this->conn = $db->getConnection();
     }
 
-    public function create(): void {
+    public function create(): void
+    {
 
         $eventName = $_POST["eventName"];
         $eventLocation = $_POST["eventLocation"];
@@ -42,17 +43,21 @@ class AdminController {
             // Ejecutar la consulta
             $stmt->execute();
             echo "Evento creado correctamente.";
-           
+            // Inicializar el array en la sesión si no existe
+            if (!isset($_SESSION["eventName"])) {
+                $_SESSION["eventName"] = array();
+            }
+            // Agregar el nombre del evento al array en la sesión
+            $_SESSION["eventName"][] = $eventName;
+            if (isset($_SESSION["eventName"])) {
+                foreach ($_SESSION["eventName"] as $event) {
+                }
+            };
         } catch (PDOException $e) {
             die("Error en la inserción del evento: " . $e->getMessage());
         }
         echo '<script>window.location.href = "../view/admin_profile.php";</script>';
         exit();
-     
-        
+
     }
-    }
-
-
-?>
-
+}
