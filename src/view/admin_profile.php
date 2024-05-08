@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -52,8 +55,8 @@
                 <h2>Admin manage tools:</h2>
                 <div class="update_a">
                     <ul>
-                        <li><button id="openModalBtn">CREATE EVENT</button></li>
-                        <li><button>UPDATE EVENT</button></li>
+                        <li><button id="openCreateModal">CREATE EVENT</button></li>
+                        <li><button id="openUpdateModal">UPDATE EVENT</button></li>
                         <li><button>DELETE EVENT</button></li>
                     </ul>
                 </div>
@@ -100,5 +103,56 @@
             </form>
         </div>
     </div>
+
+    <!-- MODAL PARA LA ACTUALIZACIÓN DE UN EVENTO: -->
+    <div id="updateModal" class="updateModal">
+        <div class="updateModal-content">
+            <span class="close2">&times;</span>
+
+            <form id="updateForm" action="../controller/XController.php" method="POST">
+                
+                <label for="nombre_concierto">Nombre del Concierto:</label><br>
+
+                    <?php if(isset($_SESSION["eventName"])){
+
+                            $nombres = $_SESSION["eventName"];
+
+                            echo '<select name="eventName">';
+
+                            foreach($nombres as $nombre){
+                                echo '<option value="'.$nombre.'">'.$nombre.'</option>';
+                            }
+
+                            echo '</select>';
+                            echo '<br>';
+
+
+                    } else {
+                        echo '<p style="color: red;">No hay eventos creados.</p>';
+                    }
+
+                    ?>
+
+                <label for="precio_entradas">Precio de Entradas:</label><br>
+                <input type="text" id="precio_entradas" name="eventPrice"><br>
+
+                <label for="tipo_evento">Tipo de evento:</label><br>
+                <input type="text" id="tipo_evento" name="eventType"><br>
+
+                <label for="localizacion_evento">Localizacion del evento:</label><br>
+                <input type="text" id="localizacion_evento" name="eventLocation"><br>
+
+                <label for="info_concierto">Información del Concierto:</label><br>
+                <textarea id="info_concierto"  rows="5" cols="50" name="info_concierto"></textarea><br>
+
+                <label for="artistas">Artistas/Grupos:</label><br>
+                <textarea type="text" id="artistas" name="eventArtists"></textarea><br>
+
+                <input type="submit" value="Crear Evento" name="createEvent">
+            </form>
+        </div>
+    </div>
+
+
 </body>
 </html>
