@@ -17,6 +17,7 @@ header {
 body {
     background-color: rgb(236, 236, 160);
     margin: 0;
+  
 }
 
 
@@ -217,6 +218,19 @@ nav button:hover {
 
 }
 
+#aboutUsBtn {
+    background-color: #3498db;
+    color: #fff;
+    border-radius: 9px;
+    margin-bottom: 2%;
+    cursor: pointer;
+}
+
+#aboutUsBtn:hover {
+    background-color: #4918db;
+
+}
+
 .dropdowncontent1 {
 
     display: none;
@@ -286,7 +300,12 @@ footer p {
     font-size: 13px;
     font-weight: bold;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
 
+}
+
+.aboutUs {
+    text-align: center;
 }
 
 .alinear1 {

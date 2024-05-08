@@ -8,7 +8,7 @@ $("#sliderExercici").slick({
     autoplaySpeed: 2000,
     slidesToScroll: 1,
 
-    responsive:[
+    responsive: [
         {
             breakpoint: 800,
             settings: {
@@ -20,23 +20,23 @@ $("#sliderExercici").slick({
         {
 
             breakpoint: 600,
-            settings: { 
+            settings: {
                 slidesToShow: 1,
                 arrows: false,
                 autoplaySpeed: 1000,
                 dots: true
             }
-        },{
+        }, {
 
             breakpoint: 400,
-            settings: { 
+            settings: {
                 slidesToShow: 1,
                 arrows: false,
                 dots: false,
                 autoplay: false
             }
 
-            
+
         }
     ]
 })
@@ -51,7 +51,7 @@ $("#sliderExercici2").slick({
     autoplay: true,
     autoplaySpeed: 2000,
     slidesToScroll: 1,
-    responsive:[
+    responsive: [
         {
             breakpoint: 800,
             settings: {
@@ -62,7 +62,7 @@ $("#sliderExercici2").slick({
         {
 
             breakpoint: 600,
-            settings: { 
+            settings: {
                 slidesToShow: 1,
                 arrows: false,
                 dots: true
@@ -80,7 +80,7 @@ $(".eventSlider").slick({
     autoplay: true,
     autoplaySpeed: 2000,
     slidesToScroll: 1,
-    responsive:[
+    responsive: [
         {
             breakpoint: 800,
             settings: {
@@ -91,7 +91,7 @@ $(".eventSlider").slick({
         {
 
             breakpoint: 600,
-            settings: { 
+            settings: {
                 slidesToShow: 1,
                 arrows: false,
                 dots: true
@@ -101,7 +101,7 @@ $(".eventSlider").slick({
 })
 //COOKIES
 
-$(document).ready(function(){
+$(document).ready(function () {
     // Verificar si se ha aceptado o rechazado la política de cookies
     var cookiesAccepted = localStorage.getItem('cookiesAccepted');
     var cookiesRejected = localStorage.getItem('cookiesRejected');
@@ -124,7 +124,7 @@ $(document).ready(function(){
     }
 
     // Manejar clic en el botón de aceptar cookies
-    $('#accept-cookies').click(function(){
+    $('#accept-cookies').click(function () {
         // Guardar en localStorage que se han aceptado las cookies
         localStorage.setItem('cookiesAccepted', true);
         // Ocultar el aviso y aplicar la clase correspondiente al body
@@ -133,7 +133,7 @@ $(document).ready(function(){
     });
 
     // Manejar clic en el botón de rechazar cookies
-    $('#reject-cookies').click(function(){
+    $('#reject-cookies').click(function () {
         // Guardar en localStorage que se han rechazado las cookies
         localStorage.setItem('cookiesRejected', true);
         // Ocultar el aviso y aplicar la clase correspondiente al body
@@ -145,8 +145,8 @@ $(document).ready(function(){
         $('.links').css('margin-bottom', '35px');
         $('.contenidor-relative').append('<button id="accept-cookies-notification" name="accept-cookies-notification">Aceptar cookies</button>');
     });
-    $(document).on('click', '#accept-cookies-notification', function(){
-        
+    $(document).on('click', '#accept-cookies-notification', function () {
+
         // Hacer unset de las cookies previas rechazadas por el usuario.
         localStorage.removeItem('cookiesRejected');
         // Guardar en localStorage que se han aceptado las cookies
@@ -155,7 +155,24 @@ $(document).ready(function(){
         $('.registers').show();
         // Posicionar el div de links correctamente.
         $('.links').css('margin-top', '69px');
-        // Ocultar el botón "Aceptar cookies"
-        $(this).hide(); 
+        // Ocultar el botón "Aceptar cookies".
+        $(this).hide();
     });
+});
+
+
+// About us logic
+
+var aboutUsBtn = document.getElementById('aboutUsBtn');
+
+// Obtener referencia al footer.
+var footer = document.getElementById('footer');
+
+// Obtener referencia al contenido del popup "About Us".
+var popupContent = document.getElementById('popupContent');
+
+// Agregar un event listener para abrir el popup cuando se haga clic en el botón "About Us".
+aboutUsBtn.addEventListener('click', function () {
+    // Reemplazar el contenido del footer con el contenido del popup "About Us".
+    footer.innerHTML = popupContent.innerHTML;
 });

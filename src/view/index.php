@@ -18,6 +18,7 @@ session_start();
     <script src="../assets/slick/slick/slick.js"></script>
     <script src="../assets/js/jQuery.js" defer></script>
 
+
 </head>
 
 <body>
@@ -34,7 +35,7 @@ session_start();
 
     <nav>
         <div class="contenidor-relative">
-           
+
             <img id="logo" src="../assets/img/findurmusic.png" alt="logo" width="210" height="220">
             <input type="text" placeholder="  Busca información...">
             <?php
@@ -183,15 +184,15 @@ session_start();
 
 
 
-    <h1 id="descubre"> ¡Consulta información sobre conciertos!</h1>
+<h1 id="descubre"> ¡Consulta información sobre conciertos!</h1>
 
 
-    <div class="flex-container eventSlider">
+<div class="flex-container eventSlider">
 
-        <?php
+    <?php
 
-        if (isset($_SESSION['logged']) && $_SESSION['logged']) {
-            echo '
+    if (isset($_SESSION['logged']) && $_SESSION['logged']) {
+        echo '
         <div class="c1">
         <a href="esdeveniment.php">
          <h1>Concierto 1</h1>
@@ -203,8 +204,8 @@ session_start();
         </a>
         </div>
         ';
-        } else {
-            echo '
+    } else {
+        echo '
         <div class="c1">
 
         <h1>Concierto 1</h1>
@@ -213,28 +214,28 @@ session_start();
          <img src="../assets/img/festival1.jpeg" width="550" height="350" alt="concierto1img">
         
         </div>';
-        }
+    }
 
-        ?>
+    ?>
 
 
-        <div class="c2">
-            <h1>Concierto 2</h1>
-            <img src="../assets/img/festival2.jpeg" width="550" height="350" alt="concierto2img">
-        </div>
-
-        <div class="c3">
-            <h1>Concierto 3</h1>
-            <img src="../assets/img/festival3.jpeg" width="550" height="350" alt="concierto3img">
-        </div>
-   
-        <div class="c3">
-            <h1>Concierto 4</h1>
-            <img  width="550" height="350" alt="concierto4img">
-        </div>
-   
+    <div class="c2">
+        <h1>Concierto 2</h1>
+        <img src="../assets/img/festival2.jpeg" width="550" height="350" alt="concierto2img">
     </div>
-  
+
+    <div class="c3">
+        <h1>Concierto 3</h1>
+        <img src="../assets/img/festival3.jpeg" width="550" height="350" alt="concierto3img">
+    </div>
+
+    <div class="c3">
+        <h1>Concierto 4</h1>
+        <img width="550" height="350" alt="concierto4img">
+    </div>
+
+</div>
+
 
 <h1 id="descubre"> ¡Asiste a los mejores conciertos!</h1>
 
@@ -307,7 +308,7 @@ session_start();
 
 </div>
 
-<footer>
+<footer id="footer">
 
     <div class="alinear1">
         <h1>Derechos de autor</h1>
@@ -315,11 +316,15 @@ session_start();
 
     </div>
     <div class="alinear2">
+
         <div class="alinearTextos">
             <h1>FindUrMusic</h1>
             <h2>Tu web musical de confianza</h2>
+            <button id="aboutUsBtn">About Us</button>
         </div>
+
     </div>
+
     <div class="alinear3">
         <p>Aviso legal.
             <br>
@@ -334,6 +339,15 @@ session_start();
     </div>
 
 </footer>
+
+<div id="popupContainer" style="display: none;">
+    <div id="popupContent">
+        <h2 class="aboutUs">About Us</h2>
+        <p class="aboutUs">Somos FindUrMusic, una plataforma dedicada a conectar amantes de la música con información sobre conciertos,
+            artistas y más. Nuestro objetivo es proporcionar una experiencia musical enriquecedora para todos nuestros
+            usuarios.</p>
+    </div>
+</div>
 
 </body>
 
