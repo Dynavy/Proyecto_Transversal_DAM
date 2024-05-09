@@ -213,17 +213,44 @@ nav button:hover {
 
 }
 
+.popupHeader *{
+
+    margin: 0;
+}
+
+.popupHeader button {
+    margin-top: 10px; 
+    margin-left: 20%;
+}
+
 .elemento {
     box-sizing: border-box;
 
 }
+.popupHeader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
 
-#aboutUsBtn {
+#popupContent button {
+   margin-bottom: 50px;
+}
+
+#aboutUsBtn  {
     background-color: #3498db;
     color: #fff;
     border-radius: 9px;
     margin-bottom: 2%;
     cursor: pointer;
+}
+#returnBtn {
+    background-color: #3498db;
+    color: #fff;
+    border-radius: 9px;
+    cursor: pointer;
+    
 }
 
 #aboutUsBtn:hover {
@@ -306,6 +333,10 @@ footer p {
 
 .aboutUs {
     text-align: center;
+}
+
+#orange {
+    color: rgb(255, 94, 0);
 }
 
 .alinear1 {

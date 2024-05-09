@@ -231,7 +231,7 @@ session_start();
 
     <div class="c3">
         <h1>Concierto 4</h1>
-        <img width="550" height="350" alt="concierto4img">
+        <img src="../ASSETS/IMG/festival4.jpeg" width="550" height="350" alt="concierto4img">
     </div>
 
 </div>
@@ -342,10 +342,12 @@ session_start();
 
 <div id="popupContainer" style="display: none;">
     <div id="popupContent">
-        <h2 class="aboutUs">About Us</h2>
-        <p class="aboutUs">Somos FindUrMusic, una plataforma dedicada a conectar amantes de la música con información sobre conciertos,
-            artistas y más. Nuestro objetivo es proporcionar una experiencia musical enriquecedora para todos nuestros
-            usuarios.</p>
+        <div class="popupHeader">
+            <button id="returnBtn">Return</button>
+            <h2 id="orange" class="aboutUs">ABOUT US</h2>
+        </div>
+        <p class="aboutUs">Find your music is designed to give music lovers the opportunity to find their star in the musical world.</p>
+        <p class="aboutUs">Email: findurmusic@example.com&nbsp;&nbsp;||&nbsp;&nbsp;Contact number: +932514543</p> 
     </div>
 </div>
 

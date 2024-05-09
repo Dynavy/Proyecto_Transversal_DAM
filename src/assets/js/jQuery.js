@@ -167,7 +167,7 @@ var aboutUsBtn = document.getElementById('aboutUsBtn');
 
 // Obtener referencia al footer.
 var footer = document.getElementById('footer');
-
+var originalFooterContent = footer.innerHTML;
 // Obtener referencia al contenido del popup "About Us".
 var popupContent = document.getElementById('popupContent');
 
@@ -175,4 +175,13 @@ var popupContent = document.getElementById('popupContent');
 aboutUsBtn.addEventListener('click', function () {
     // Reemplazar el contenido del footer con el contenido del popup "About Us".
     footer.innerHTML = popupContent.innerHTML;
+
+   
 });
+
+var aboutUsBtn = document.getElementById('returnBtn');
+
+returnBtn.addEventListener('click', function () {
+    footer.innerHTML = originalFooterContent.inner;
+
+})
