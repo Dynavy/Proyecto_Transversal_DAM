@@ -40,19 +40,17 @@ class AdminController
         $stmt->bindParam(':eventLocation', $eventLocation, PDO::PARAM_STR);
         $stmt->bindParam(':eventType', $eventType, PDO::PARAM_STR);
         try {
-            // Ejecutar la consulta
+            // Ejecutar la consulta.
             $stmt->execute();
-            echo "Evento creado correctamente.";
-            // Inicializar el array en la sesión si no existe
+            // Inicializar el array en la sesión si no existe.
             if (!isset($_SESSION["eventName"])) {
                 $_SESSION["eventName"] = array();
             }
-            // Agregar el nombre del evento al array en la sesión
+            // Agregar el nombre del evento al array en la sesión.
             $_SESSION["eventName"][] = $eventName;
-            if (isset($_SESSION["eventName"])) {
-                foreach ($_SESSION["eventName"] as $event) {
-                }
-            };
+            // Mensaje para notificar al usuario.
+            $_SESSION['success_message'] = "El evento '$eventName' se ha creado correctamente.";
+
         } catch (PDOException $e) {
             die("Error en la inserción del evento: " . $e->getMessage());
         }

@@ -1,8 +1,12 @@
 <?php
 session_start();
+
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,6 +16,7 @@ session_start();
     <script src="../assets/js/deleteProfile.js" defer></script>
     <script src="../assets/js/modal.js" defer></script>
 </head>
+
 <body>
     <div class="overlay" id="overlay"></div>
     <div class="centrar">
@@ -55,10 +60,18 @@ session_start();
                 <h2>Admin manage tools:</h2>
                 <div class="update_a">
                     <ul>
-                        <li><button id="openCreateModal">CREATE EVENT</button></li>
-                        <li><button id="openUpdateModal">UPDATE EVENT</button></li>
-                        <li><button>DELETE EVENT</button></li>
-                    </ul>
+                        <li><button id="openCreateModal">1. CREATE EVENT</button></li>
+                        <li><button id="openUpdateModal">2. UPDATE EVENT</button></li>
+                        <li><button id="openDeleteModal">3. DELETE EVENT</button></li>
+                        <br>
+                        <?php
+                        if (isset($_SESSION['success_message'])) {
+                            echo '<span class="success-message">' . $_SESSION['success_message'] . '</p>';
+                            unset($_SESSION['success_message']); // Limpiar el mensaje después de mostrarlo
+                        }
+                        ?>
+                        </ul>
+                   
                 </div>
             </div>
             <br>
@@ -81,25 +94,25 @@ session_start();
 
             <form id="eventForm" action="../controller/XController.php" method="POST">
 
-                <label for="nombre_concierto">Nombre del Concierto:</label><br>
-                <input type="text" id="nombre_concierto" name="eventName"><br>
+                <label for="nombre_concierto">Nombre del Concierto:</label>
+                <input type="text" id="nombre_concierto" name="eventName" required>
 
-                <label for="precio_entradas">Precio de Entradas:</label><br>
-                <input type="text" id="precio_entradas" name="eventPrice"><br>
+                <label for="precio_entradas">Precio de Entradas:</label>
+                <input type="text" id="precio_entradas" name="eventPrice" required>
 
-                <label for="tipo_evento">Tipo de evento:</label><br>
-                <input type="text" id="tipo_evento" name="eventType"><br>
+                <label for="tipo_evento">Tipo de evento:</label>
+                <input type="text" id="tipo_evento" name="eventType" required>
 
-                <label for="localizacion_evento">Localizacion del evento:</label><br>
-                <input type="text" id="localizacion_evento" name="eventLocation"><br>
+                <label for="localizacion_evento">Localizacion del evento:</label>
+                <input type="text" id="localizacion_evento" name="eventLocation" required>
 
-                <label for="info_concierto">Información del Concierto:</label><br>
-                <textarea id="info_concierto"  rows="5" cols="50" name="info_concierto"></textarea><br>
+                <label for="info_concierto">Información del Concierto:</label>
+                <textarea id="info_concierto" rows="5" cols="50" name="info_concierto" required></textarea>
 
-                <label for="artistas">Artistas/Grupos:</label><br>
-                <textarea type="text" id="artistas" name="eventArtists"></textarea><br>
+                <label for="artistas">Artistas/Grupos:</label>
+                <textarea type="text" id="artistas" name="eventArtists" required></textarea><br>
 
-                <input type="submit" value="Crear Evento" name="createEvent">
+                <input type="submit" value="Crear Evento" name="createEvent" required>
             </form>
         </div>
     </div>
@@ -110,49 +123,84 @@ session_start();
             <span class="close2">&times;</span>
 
             <form id="updateForm" action="../controller/XController.php" method="POST">
-                
-                <label for="nombre_concierto">Nombre del Concierto:</label><br>
 
-                    <?php if(isset($_SESSION["eventName"])){
+                <label for="nombre_concierto">Conciertos a modificar:</label>
 
-                            $nombres = $_SESSION["eventName"];
+                <?php if (isset($_SESSION["eventName"])) {
 
-                            echo '<select name="eventName">';
+                    $nombres = $_SESSION["eventName"];
 
-                            foreach($nombres as $nombre){
-                                echo '<option value="'.$nombre.'">'.$nombre.'</option>';
-                            }
+                    echo '<select name="eventName">';
 
-                            echo '</select>';
-                            echo '<br>';
-
-
-                    } else {
-                        echo '<p style="color: red;">No hay eventos creados.</p>';
+                    foreach ($nombres as $nombre) {
+                        echo '<option value="' . $nombre . '">' . $nombre . '</option>';
                     }
 
-                    ?>
+                    echo '</select>';
+                    echo '<br>';
 
-                <label for="precio_entradas">Precio de Entradas:</label><br>
-                <input type="text" id="precio_entradas" name="eventPrice"><br>
 
-                <label for="tipo_evento">Tipo de evento:</label><br>
-                <input type="text" id="tipo_evento" name="eventType"><br>
+                } else {
+                    echo '<p style="color: red;">No hay eventos creados.</p>';
+                }
 
-                <label for="localizacion_evento">Localizacion del evento:</label><br>
-                <input type="text" id="localizacion_evento" name="eventLocation"><br>
+                ?>
 
-                <label for="info_concierto">Información del Concierto:</label><br>
-                <textarea id="info_concierto"  rows="5" cols="50" name="info_concierto"></textarea><br>
+                <label for="precio_entradas">Modificar precio:</label>
+                <input type="text" id="precio_entradas" name="eventPrice" required>
 
-                <label for="artistas">Artistas/Grupos:</label><br>
-                <textarea type="text" id="artistas" name="eventArtists"></textarea><br>
+                <label for="tipo_evento">Modificar tipo de evento:</label>
+                <input type="text" id="tipo_evento" name="eventType" required>
 
-                <input type="submit" value="Crear Evento" name="createEvent">
+                <label for="localizacion_evento">Modificar localización:</label>
+                <input type="text" id="localizacion_evento" name="eventLocation" required>
+
+                <label for="info_concierto">Modificiar información:</label>
+                <textarea id="info_concierto" rows="5" cols="50" name="info_concierto" required></textarea>
+
+                <label for="artistas">Modificar Artistas/Grupos:</label>
+                <textarea type="text" id="artistas" rows="2" cols="20" name="eventArtists" required></textarea>
+                <br>
+                <input type="submit" value="Actualizar Evento" name="updateEvent" required>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL PARA LA ELIMINACIÓN DE UN EVENTO: -->
+    <div id="deleteModal" class="deleteModal">
+        <div class="deleteModal-content">
+            <span class="close3">&times;</span>
+
+            <form id="deleteForm" action="../controller/XController.php" method="POST">
+
+                <label for="nombre_concierto">Conciertos a eliminar:</label>
+
+                <?php if (isset($_SESSION["eventName"])) {
+
+                    $nombres = $_SESSION["eventName"];
+
+                    echo '<select name="eventName">';
+
+                    foreach ($nombres as $nombre) {
+                        echo '<option value="' . $nombre . '">' . $nombre . '</option>';
+                    }
+
+                    echo '</select>';
+                    echo '<br>';
+
+
+                } else {
+                    echo '<p style="color: red;">No hay eventos creados.</p>';
+                }
+
+                ?>
+
+                <input type="submit" value="Eliminar Evento" name="deleteEvent" required>
             </form>
         </div>
     </div>
 
 
 </body>
+
 </html>
