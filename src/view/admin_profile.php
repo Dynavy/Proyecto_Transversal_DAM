@@ -50,9 +50,8 @@ session_start();
                 <div class="texto_derecha">
                     <img class="texto_derecha" src="../ASSETS/IMG/login_usuario.png" alt="login_user" width="120px">
                     <div class="texto_usuario">
-                        <p class="text1"> Usuarios Totales</p>
+                        <p class="text1"> Usuarios Activos</p>
                         <p class="text1">Posts Totales</p>
-                        <p class="text1">Reventas Totales</p>
                     </div>
                 </div>
             </div>
