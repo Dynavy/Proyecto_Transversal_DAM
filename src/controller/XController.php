@@ -1,18 +1,20 @@
 <?php
+
 require_once 'Database.php';
 session_start();
 
-//Check if form is submitted
 $event = new AdminController();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    //Check button
+    // Boton de crear evento.
     if (isset($_POST["createEvent"])) {
         $event->create();
     }
-    if (isset($_POST["update"])) {
+    // Boton de actualizar evento.
+    if (isset($_POST["updateEvent"])) {
         $event->update();
     }
+    // Boton de borrar evento.
     if (isset($_POST["delete"])) {
         $event->delete();
     }
@@ -42,17 +44,44 @@ class AdminController
         try {
             // Ejecutar la consulta.
             $stmt->execute();
-            // Inicializar el array en la sesión si no existe.
-            if (!isset($_SESSION["eventName"])) {
-                $_SESSION["eventName"] = array();
-            }
-            // Agregar el nombre del evento al array en la sesión.
-            $_SESSION["eventName"][] = $eventName;
             // Mensaje para notificar al usuario.
             $_SESSION['success_message'] = "El evento '$eventName' se ha creado correctamente.";
 
         } catch (PDOException $e) {
-            die("Error en la inserción del evento: " . $e->getMessage());
+            die("Error en la creación del evento: " . $e->getMessage());
+        }
+        echo '<script>window.location.href = "../view/admin_profile.php";</script>';
+        exit();
+
+    }
+
+    public function update(): void
+    {
+        $oldEventName = $_POST['eventName'];
+        $newEventName = $_POST["newEventName"];
+        $newEventLocation = $_POST["newEventLocation"];
+        $newEventType = $_POST["newEventType"];
+
+        $stmt = $this->conn->prepare("UPDATE EVENTO 
+        SET nombre = :newEventName, localizacion = :newEventLocation, tipo = :newEventType 
+        WHERE nombre = :oldEventName");
+        $stmt->bindParam(':oldEventName', $oldEventName, PDO::PARAM_STR);
+        $stmt->bindParam(':newEventName', $newEventName, PDO::PARAM_STR);
+        $stmt->bindParam(':newEventLocation', $newEventLocation, PDO::PARAM_STR);
+        $stmt->bindParam(':newEventType', $newEventType, PDO::PARAM_STR);
+
+        try {
+            // Ejecutar la consulta.
+            $stmt->execute();
+            // Inicializar el array en la sesión si no existe.
+            if (!isset($_SESSION["eventName"])) {
+                $_SESSION["eventName"] = array();
+            }
+            // Mensaje para notificar al usuario.
+            $_SESSION['success_message'] = "El evento '$oldEventName' se ha actualizado correctamente.";
+
+        } catch (PDOException $e) {
+            die("Error en la actualización del evento: " . $e->getMessage());
         }
         echo '<script>window.location.href = "../view/admin_profile.php";</script>';
         exit();

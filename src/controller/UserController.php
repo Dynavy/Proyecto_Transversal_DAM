@@ -1,4 +1,5 @@
 <?php
+
 require_once 'Database.php';
 session_start();
 
@@ -63,6 +64,7 @@ class UserController
             $stmt = $this->conn->prepare("DELETE FROM Usuario WHERE Correo_electronico=:username");
             $stmt->bindParam(':username', $username, PDO::PARAM_STR);
             $stmt->execute();
+            $this->logout();
 
         } catch (PDOException $e) {
             echo "Connection failed: " . $e->getMessage();
@@ -79,8 +81,6 @@ class UserController
         $password = $_POST["password"];
         $is_admin = false;
 
-
-        //Check against a database
 
         try {
 
