@@ -239,7 +239,8 @@ session_start();
 
 <h1 id="descubre"> ¡Consulta todos los eventos disponibles en nuestra página!</h1>
 
-<div class="flex-container sliderExercici">
+
+<div class="flex-container eventSlider">
 
     <div class="c1">
 
@@ -273,32 +274,32 @@ session_start();
 
 <div class="flex-container eventSlider"> 
 
-    <div class="conciertos_slick">
+    <div class="c1">
 
         <h3>Talentoso músico emergiendo en<br> la escena con su sonido innovador</h3>
 
         <img src="../ASSETS/IMG/artista1.jpg" width="550" height="350" alt="Imagen artista 1">
     </div>
 
-    <div class="c1">
+    <div class="c2">
         <h3>Un artista independiente está captando<br> la atención con su música original</h3>
 
         <img src="../ASSETS/IMG/artista2.jpg" width="550" height="350" alt="Imagen artista 2">
     </div>
 
-    <div class="c2">
+    <div class="c3">
         <h3>Joven cantautor está ganando <br>seguidores con su estilo distintivo.</h3>
 
         <img src="../ASSETS/IMG/artista3.jpg" width="550" height="350" alt="Imagen artista 3">
     </div>
 
-    <div class="c3">
+    <div class="c4">
         <h3>Prometedor talento está destacando en <br>el mundo de la música con su voz única</h3>
 
         <img src="../ASSETS/IMG/artista4.jpg" width="550" height="350" alt="Imagen artista 4">
     </div>
 
-    <div class="c4">
+    <div class="c5">
         <h3>Cantante emergente dejando huella con<br> su creatividad y pasión por la música</h3>
 
         <img src="../ASSETS/IMG/artista5.jpg" width="550" height="350" alt="Imagen artista 5">
