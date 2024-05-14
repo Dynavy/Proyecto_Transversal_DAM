@@ -1,6 +1,5 @@
 <?php
 
-require_once '../controller/Database.php';
 require_once '../controller/ShowEventInformation.php';
 
 ?>
