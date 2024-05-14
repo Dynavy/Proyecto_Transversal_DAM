@@ -126,13 +126,13 @@ require_once '../controller/ShowEventInformation.php';
 
                 <br>
                 <label for="newEventName">Modificar nombre del evento:</label>
-                <input type="text" id="newEventName" name="newEventName">
+                <input type="text" id="newEventName" name="newEventName" required>
 
                 <label for="newEventType">Modificar tipo de evento:</label>
-                <input type="text" id="newEventType" name="newEventType">
+                <input type="text" id="newEventType" name="newEventType" required>
 
                 <label for="newEventLocation">Modificar localización del evento:</label>
-                <input type="text" id="newEventLocation" name="newEventLocation"> <br>
+                <input type="text" id="newEventLocation" name="newEventLocation" required> <br>
 
                 <input type="submit" value="Actualizar Evento" id="updateEventButton" name="updateEvent" required>
             </form>

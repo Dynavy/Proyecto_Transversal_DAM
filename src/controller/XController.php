@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $event->update();
     }
     // Boton de borrar evento.
-    if (isset($_POST["delete"])) {
+    if (isset($_POST["deleteEvent"])) {
         $event->delete();
     }
 }
@@ -86,5 +86,22 @@ class AdminController
         echo '<script>window.location.href = "../view/admin_profile.php";</script>';
         exit();
 
+    }
+
+    public function delete(): void
+    {
+
+        $eventName = $_POST['eventName'];
+        try {
+            $stmt = $this->conn->prepare("DELETE FROM Evento WHERE Nombre=:eventName");
+            $stmt->bindParam(':eventName', $eventName, PDO::PARAM_STR);
+            $stmt->execute();
+            $_SESSION['success_message'] = "El evento '$eventName' se ha borrado correctamente.";
+
+        } catch (PDOException $e) {
+            echo "Error al borrar el evento: " . $e->getMessage();
+        }
+        echo '<script>window.location.href = "../view/admin_profile.php";</script>';
+        exit();
     }
 }
