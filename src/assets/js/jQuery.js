@@ -1,77 +1,3 @@
-$(".sliderExercici").slick({
-
-
-    dots: true,
-    infinite: true,
-    speed: 300,
-    slidesToShow: 3,
-    autoplay: true,
-    autoplaySpeed: 2000,
-    slidesToScroll: 1,
-    
-    responsive: [
-        {
-            breakpoint: 800,
-            settings: {
-                slidesToShow: 2,
-                dots: true
-
-            }
-        },
-        {
-
-            breakpoint: 600,
-            settings: {
-                slidesToShow: 1,
-                arrows: false,
-                autoplaySpeed: 1000,
-                dots: true
-            }
-        }, {
-
-            breakpoint: 400,
-            settings: {
-                slidesToShow: 1,
-                arrows: false,
-                dots: false,
-                autoplay: false
-            }
-
-
-        }
-    ]
-})
-
-
-$("#sliderExercici2").slick({
-
-    dots: true,
-    infinite: true,
-    speed: 300,
-    slidesToShow: 3,
-    autoplay: true,
-    autoplaySpeed: 2000,
-    slidesToScroll: 1,
-    responsive: [
-        {
-            breakpoint: 800,
-            settings: {
-                slidesToShow: 2
-
-            }
-        },
-        {
-
-            breakpoint: 600,
-            settings: {
-                slidesToShow: 1,
-                arrows: false,
-                dots: true
-            }
-        }
-    ]
-})
-
 $(".eventSlider").slick({
 
     dots: true,
@@ -81,6 +7,7 @@ $(".eventSlider").slick({
     autoplay: true,
     autoplaySpeed: 2000,
     slidesToScroll: 1,
+    arrows: false,
     responsive: [
         {
             breakpoint: 800,
@@ -94,12 +21,12 @@ $(".eventSlider").slick({
             breakpoint: 600,
             settings: {
                 slidesToShow: 1,
-                arrows: false,
-                dots: true
+            
             }
         }
     ]
 })
+
 //COOKIES
 
 $(document).ready(function () {
