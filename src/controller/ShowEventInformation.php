@@ -18,6 +18,15 @@ function showEventNames()
     }
 }
 
+// Función para que el usuario normal pueda leer los datos de un evento.
+function showEventsInfo()
+{
+    $db = new Database();
+    $conn = $db->getConnection();
+    $stmt = $conn->query("SELECT Nombre, Tipo, Localizacion FROM EVENTO");
+   
+}
+
 // Enviamos true a getEventDetails desde el ajax para que se ejecute este if.
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["getEventDetails"])) {
     $eventName = $_POST["eventName"];
