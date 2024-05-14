@@ -22,18 +22,11 @@ body {
 
 
 .flex-container {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: space-between;
     background-color: beige;
     text-align: center;
     padding: 35px;
 }
 
-div#sliderExercici {
-    padding: 5px;
-}
 
 #descubre {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -47,13 +40,16 @@ div#sliderExercici {
 
 .c1,
 .c2,
-.c3 {
+.c3,
+.c4,
+.c5 {
     padding: 10px 15px;
-
     border-radius: 30px;
 
 }
 
+.c5 img,
+.c4 img,
 .c3 img,
 .c2 img,
 .c1 img {
@@ -370,15 +366,8 @@ footer p {
 
 }
 
-
-.conciertos_slick>h3 {
-    text-align: center;
-
-}
-
-#sliderExercici2>.conciertos_slick>h3 {
-    text-align: center;
-
+.conciertos_slick img {
+    border-radius: 30px;
 }
 
 #logo {
@@ -508,10 +497,6 @@ footer p {
     }
 
     .flex-container {
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: row;
-        justify-content: space-between;
         background-color: beige;
         text-align: center;
         padding: 35px;

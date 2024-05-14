@@ -184,7 +184,7 @@ session_start();
 
 
 
-<h1 id="descubre"> ¡Consulta información sobre conciertos!</h1>
+<h1 id="descubre"> ¡Consulta información sobre conciertos específicos!</h1>
 
 
 <div class="flex-container eventSlider">
@@ -237,75 +237,75 @@ session_start();
 </div>
 
 
-<h1 id="descubre"> ¡Asiste a los mejores conciertos!</h1>
+<h1 id="descubre"> ¡Consulta todos los eventos disponibles en nuestra página!</h1>
 
+<div class="flex-container sliderExercici">
 
-<div id="sliderExercici">
-    <div class="conciertos_slick">
+    <div class="c1">
 
         <h3>Título Concierto1</h3>
-        <img src="../ASSETS/IMG/festival1.jpeg" width="630px" height="320px" alt="Imagen concierto 1">
-
+        <img src="../ASSETS/IMG/festival1.jpeg" width="550" height="350" alt="Imagen concierto 1">
 
     </div>
-    <div class="conciertos_slick">
+    <div class="c2">
         <h3>Título Concierto2</h3>
-        <img src="../ASSETS/IMG/festival2.jpeg" width="630px" height="320px" alt="Imagen concierto 2">
+        <img src="../ASSETS/IMG/festival2.jpeg" width="550" height="350" alt="Imagen concierto 2">
     </div>
-    <div class="conciertos_slick">
+    <div class="c3">
         <h3>Título Concierto3</h3>
 
-        <img src="../ASSETS/IMG/festival3.jpeg" width="630px" height="320px" alt="Imagen concierto 3">
+        <img src="../ASSETS/IMG/festival3.jpeg" width="550" height="350" alt="Imagen concierto 3">
     </div>
-    <div class="conciertos_slick">
+    <div class="c4">
 
         <h3>Título Concierto4</h3>
-        <img src="../ASSETS/IMG/festival4.jpeg" width="630px" height="320px" alt="Imagen concierto 4">
+        <img src="../ASSETS/IMG/festival4.jpeg" width="550" height="350" alt="Imagen concierto 4">
     </div>
-    <div class="conciertos_slick">
+    <div class="c5">
         <h3>Título Concierto5</h3>
-        <img src="../ASSETS/IMG/festival5.jpeg" width="630px" height="320px" alt="Imagen concierto 5">
+        <img src="../ASSETS/IMG/festival5.jpeg" width="550" height="350" alt="Imagen concierto 5">
     </div>
-
 
 </div>
 
 <h1 id="descubre"> ¡Disfruta de tus artistas favoritos!</h1>
 
 
-<div id="sliderExercici2">
+<div class="flex-container eventSlider"> 
+
     <div class="conciertos_slick">
 
         <h3>Talentoso músico emergiendo en<br> la escena con su sonido innovador</h3>
 
-        <img src="../ASSETS/IMG/artista1.jpg" width="630px" height="360px" alt="Imagen artista 1">
+        <img src="../ASSETS/IMG/artista1.jpg" width="550" height="350" alt="Imagen artista 1">
     </div>
 
-    <div class="conciertos_slick">
+    <div class="c1">
         <h3>Un artista independiente está captando<br> la atención con su música original</h3>
 
-        <img src="../ASSETS/IMG/artista2.jpg" width="630px" height="360px" alt="Imagen artista 2">
+        <img src="../ASSETS/IMG/artista2.jpg" width="550" height="350" alt="Imagen artista 2">
     </div>
 
-    <div class="conciertos_slick">
+    <div class="c2">
         <h3>Joven cantautor está ganando <br>seguidores con su estilo distintivo.</h3>
 
-        <img src="../ASSETS/IMG/artista3.jpg" width="630px" height="360px" alt="Imagen artista 3">
+        <img src="../ASSETS/IMG/artista3.jpg" width="550" height="350" alt="Imagen artista 3">
     </div>
 
-    <div class="conciertos_slick">
+    <div class="c3">
         <h3>Prometedor talento está destacando en <br>el mundo de la música con su voz única</h3>
 
-        <img src="../ASSETS/IMG/artista4.jpg" width="630px" height="360px" alt="Imagen artista 4">
+        <img src="../ASSETS/IMG/artista4.jpg" width="550" height="350" alt="Imagen artista 4">
     </div>
 
-    <div class="conciertos_slick">
+    <div class="c4">
         <h3>Cantante emergente dejando huella con<br> su creatividad y pasión por la música</h3>
 
-        <img src="../ASSETS/IMG/artista5.jpg" width="630px" height="360px" alt="Imagen artista 5">
+        <img src="../ASSETS/IMG/artista5.jpg" width="550" height="350" alt="Imagen artista 5">
     </div>
 
 
+</div>
 </div>
 
 <footer id="footer">
@@ -346,8 +346,9 @@ session_start();
             <button id="returnBtn">Return</button>
             <h2 id="orange" class="aboutUs">ABOUT US</h2>
         </div>
-        <p class="aboutUs">Find your music is designed to give music lovers the opportunity to find their star in the musical world.</p>
-        <p class="aboutUs">Email: findurmusic@example.com&nbsp;&nbsp;||&nbsp;&nbsp;Contact number: +932514543</p> 
+        <p class="aboutUs">Find your music is designed to give music lovers the opportunity to find their star in the
+            musical world.</p>
+        <p class="aboutUs">Email: findurmusic@example.com&nbsp;&nbsp;||&nbsp;&nbsp;Contact number: +932514543</p>
     </div>
 </div>
 

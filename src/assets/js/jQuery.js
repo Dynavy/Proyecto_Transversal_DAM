@@ -1,4 +1,5 @@
-$("#sliderExercici").slick({
+$(".sliderExercici").slick({
+
 
     dots: true,
     infinite: true,
@@ -7,7 +8,7 @@ $("#sliderExercici").slick({
     autoplay: true,
     autoplaySpeed: 2000,
     slidesToScroll: 1,
-
+    
     responsive: [
         {
             breakpoint: 800,
