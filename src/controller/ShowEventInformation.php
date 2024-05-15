@@ -23,8 +23,19 @@ function showEventsInfo()
 {
     $db = new Database();
     $conn = $db->getConnection();
-    $stmt = $conn->query("SELECT Nombre, Tipo, Localizacion FROM EVENTO");
-   
+    $stmt = $conn->query("SELECT Nombre, Localizacion, Tipo FROM EVENTO");
+    if ($stmt->rowCount() > 0) {
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            echo '<div class="event-details">';
+            echo '<p>PATROCINADO POR FINDURMUSIC <span>' . '</span></p>';
+            echo '<p>NOMBRE: <span>' . $row["Nombre"] . '</span></p>';
+            echo '<p>TIPO: <span>' . $row["Tipo"] . '</span></p>';
+            echo '<p>LOCALIZACIÓN: <span>' . $row["Localizacion"] . '</span></p>';
+            echo '</div>';
+        }
+    } else {
+        echo '<p style="color: red;">No hay eventos creados.</p>';
+    }
 }
 
 // Enviamos true a getEventDetails desde el ajax para que se ejecute este if.
