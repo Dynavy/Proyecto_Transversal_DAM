@@ -239,42 +239,21 @@ require_once '../controller/ShowEventInformation.php';
 </div>
 
 
-<h1 id="descubre"> ¡Consulta todos los eventos disponibles en nuestra página!</h1>
+<h1 id="descubre"> ¡Eventos disponibles en nuestra página!</h1>
 
 
 <div class="flex-container eventSlider">
 
-    <div class="c1">
 
-        <h3>Título Concierto1</h3>
-        <img src="../ASSETS/IMG/festival1.jpeg" width="550" height="350" alt="Imagen concierto 1">
-
-    </div>
-    <div class="c2">
-        <h3>Título Concierto2</h3>
-        <img src="../ASSETS/IMG/festival2.jpeg" width="550" height="350" alt="Imagen concierto 2">
-    </div>
-    <div class="c3">
-        <h3>Título Concierto3</h3>
-
-        <img src="../ASSETS/IMG/festival3.jpeg" width="550" height="350" alt="Imagen concierto 3">
-    </div>
-    <div class="c4">
-
-        <h3>Título Concierto4</h3>
-        <img src="../ASSETS/IMG/festival4.jpeg" width="550" height="350" alt="Imagen concierto 4">
-    </div>
-    <div class="c5">
-        <h3>Título Concierto5</h3>
-        <img src="../ASSETS/IMG/festival5.jpeg" width="550" height="350" alt="Imagen concierto 5">
-    </div>
+        <?php showEventsInfo(); ?>
+       
 
 </div>
 
 <h1 id="descubre"> ¡Disfruta de tus artistas favoritos!</h1>
 
 
-<div class="flex-container eventSlider"> 
+<div class="flex-container eventSlider">
 
     <div class="c1">
 
