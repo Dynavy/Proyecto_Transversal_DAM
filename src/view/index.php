@@ -168,18 +168,18 @@ require_once '../controller/ShowEventInformation.php';
 </header>
 <nav>
     <ul class="contenedor">
-        <li class="elemento"><a href="index.html"><strong>Índex</strong></a></li>
-        <li class="dropdown"><a href="Géneros.html"><strong>Géneros</strong></a>
+        <li class="elemento"><a href="#"><strong>Índex</strong></a></li>
+        <li class="dropdown"><a href="#"><strong>Géneros</strong></a>
             <ul>
-                <li class="dropdowncontent1"><a href="historia.html#PrimeraFormacio"><strong>Pop</strong></a></li>
-                <li class="dropdowncontent2"><a href="historia.html#FormacioDefinitiva"><strong>Rock</strong></a>
+                <li class="dropdowncontent1"><a href="#"><strong>Pop</strong></a></li>
+                <li class="dropdowncontent2"><a href="#"><strong>Rock</strong></a>
                 </li>
             </ul>
         </li>
-        <li class="elemento"><a href="artistas.html"><strong>TOP Artistas</strong></a></li>
-        <li class="elemento"><a href="bandas.html"><strong>TOP Bandas</strong></a></li>
-        <li class="elemento"><a href="Canciones.html"><strong>TOP Canciones</strong></a></li>
-        <li class="elemento"><a href="Musica.html"><strong>Música</strong></a></li>
+        <li class="elemento"><a href="#"><strong>TOP Artistas</strong></a></li>
+        <li class="elemento"><a href="#"><strong>TOP Bandas</strong></a></li>
+        <li class="elemento"><a href="#"><strong>TOP Canciones</strong></a></li>
+        <li class="elemento"><a href="#"><strong>Música</strong></a></li>
 
     </ul>
 </nav>
