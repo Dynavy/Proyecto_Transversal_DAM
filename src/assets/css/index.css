@@ -20,6 +20,10 @@ body {
   
 }
 
+.event-details p:first-child     {
+    color: rgb(0, 140, 255);
+    font-size: 20px;
+}
 
 .flex-container {
     background-color: beige;
