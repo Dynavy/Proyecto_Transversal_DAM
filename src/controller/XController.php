@@ -37,6 +37,13 @@ class AdminController
         $eventLocation = $_POST["eventLocation"];
         $eventType = $_POST["eventType"];
 
+        // Manejo de errores de parte del servidor.
+        if (empty($eventName) || empty($eventLocation) || empty($eventType)) {
+            $_SESSION['error_message'] = "Todos los campos son obligatorios.";
+            header('Location: ../view/admin_profile.php');
+            exit();
+        }
+
         $stmt = $this->conn->prepare("INSERT INTO EVENTO (Nombre, Localizacion, Tipo) VALUES (:eventName, :eventLocation, :eventType)");
         $stmt->bindParam(':eventName', $eventName, PDO::PARAM_STR);
         $stmt->bindParam(':eventLocation', $eventLocation, PDO::PARAM_STR);
@@ -57,10 +64,19 @@ class AdminController
 
     public function update(): void
     {
+
+
         $oldEventName = $_POST['eventName'];
         $newEventName = $_POST["newEventName"];
         $newEventLocation = $_POST["newEventLocation"];
         $newEventType = $_POST["newEventType"];
+
+        // Manejo de errores de parte del servidor.
+        if (empty($oldEventName) || empty($newEventName) || empty($newEventLocation) || empty($newEventType)) {
+            $_SESSION['error_message'] = "Todos los campos son obligatorios.";
+            header('Location: ../view/admin_profile.php');
+            exit();
+        }
 
         $stmt = $this->conn->prepare("UPDATE EVENTO 
         SET nombre = :newEventName, localizacion = :newEventLocation, tipo = :newEventType 
@@ -92,6 +108,14 @@ class AdminController
     {
 
         $eventName = $_POST['eventName'];
+
+        // Manejo de errores de parte del servidor.
+        if (empty($eventName)) {
+            $_SESSION['error_message'] = "Todos los campos son obligatorios.";
+            header('Location: ../view/admin_profile.php');
+            exit();
+        }
+
         try {
             $stmt = $this->conn->prepare("DELETE FROM Evento WHERE Nombre=:eventName");
             $stmt->bindParam(':eventName', $eventName, PDO::PARAM_STR);

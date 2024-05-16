@@ -67,7 +67,14 @@ require_once '../controller/ShowEventInformation.php';
                         <li><button id="openDeleteModal">3. DELETE EVENT</button></li>
                         <br>
                         <?php
+
+                        // Mensajes de éxito al hacer operaciones con el XController.
                         if (isset($_SESSION['success_message'])) {
+                            echo '<span class="success-message">' . $_SESSION['success_message'] . '</p>';
+                            unset($_SESSION['success_message']); // Limpiar el mensaje después de mostrarlo
+                        }
+                        // Mensajes de error al hacer operaciones con el XController.
+                        if (isset($_SESSION['error_message'])) {
                             echo '<span class="success-message">' . $_SESSION['success_message'] . '</p>';
                             unset($_SESSION['success_message']); // Limpiar el mensaje después de mostrarlo
                         }
@@ -99,7 +106,7 @@ require_once '../controller/ShowEventInformation.php';
 
                 <label for="eventName">Nombre del Concierto:</label>
                 <input type="text" id="eventName" name="eventName" required>
-
+                      
                 <label for="eventType">Tipo de evento:</label>
                 <input type="text" id="eventType" name="eventType" required>
 

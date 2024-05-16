@@ -37,6 +37,12 @@ header {
     color: darkgreen;
 
 }
+
+.error-message {
+    font-weight: bold;
+    color: red;
+
+}
 .texto_usuario {
     width: 50%;
     display: inline-block;
