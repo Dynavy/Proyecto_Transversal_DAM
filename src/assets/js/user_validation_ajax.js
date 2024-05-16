@@ -1,6 +1,6 @@
 
 // Captura la selección del usuario. 
-$("input[name='username']").change(function() {
+$("input[name='username']").blur(function() {
     // Hacemos la solicitud ajax al servidor 'email_validator.php'.
     let usernameAjax = $(this).val();
     $.ajax({
