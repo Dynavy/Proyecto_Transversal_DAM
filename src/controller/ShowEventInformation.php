@@ -8,7 +8,9 @@ function showEventNames()
     $conn = $db->getConnection();
     $stmt = $conn->query("SELECT Nombre FROM EVENTO");
     if ($stmt->rowCount() > 0) {
-        echo '<select name="eventName">';
+        echo '<select name="eventName" required>';
+        // Primera opción vacía.
+        echo '<option value="" selected disabled>Seleccione un tipo de evento</option>';
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             echo '<option value="' . $row["Nombre"] . '">' . $row["Nombre"] . '</option>';
         }
