@@ -9,9 +9,14 @@ $("input[name='username']").blur(function() {
         dataType: "json",
         data: { username: usernameAjax},
         success: function(data) {
-            $("#test").html("Validación: " + data);
+            if (data.message === "Correo válido") {
+                $("#validationMessage").text(data.message).css("color", "green");
+            } else {
+                $("#validationMessage").text(data.message).css("color", "red");
+            }
         },
         error: function() {
+            $("#validationMessage").text("Error al procesar la solicitud").css("color", "red");
         }
-    })
+    });
 });

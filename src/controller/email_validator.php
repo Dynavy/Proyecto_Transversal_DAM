@@ -11,13 +11,11 @@ function validateEmail(){
     $resultados = $stmt->fetchAll(PDO::FETCH_COLUMN);
     $response = null;
     // Comparar el valor de 'username' con los correos electrónicos obtenidos
+    
     if (in_array($username, $resultados)) {
-        // El correo electrónico existe en la base de datos
-        $response ="Correo no válido";
-        
+        $response = array("message" => "Correo en uso, pruebe con otro.");
     } else {
-        // El correo electrónico no coincide con ningún correo electrónico en la base de datos
-        $response = "Correo válido";
+        $response = array("message" => "Correo válido");
     }
     
     echo json_encode($response);
@@ -29,4 +27,3 @@ function validateEmail(){
 
 
 
-å

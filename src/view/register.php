@@ -49,14 +49,14 @@ if (isset($_SESSION['error'])) {
                     <div class="moureBotons">
                         <input type="submit" value="Registrar" name="register">
                         <input type="reset" value="Limpiar formulario">
-
                     </div>
+                    <div id="validationMessage"> </div>   
                     <a href="index.php">
                         <p id="volver">Volver a la página principal</p>
                     </a>
                     <input type="hidden" name="esAdmin" value="false">
                 </div>
-                    <div id="test"> </div>            
+                             
             </form>
         </div>
     </div>

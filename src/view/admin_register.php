@@ -21,6 +21,7 @@ if (isset($_SESSION['error'])) {
     <script src="../assets/js/jquery.validate.js"></script>
     <script src="../assets/js/additional-methods.js"></script>
     <script src="../assets/js/adminRegister-validation.js" defer></script>
+    <script src="../assets/js/user_validation_ajax.js" defer></script>
 </head>
 
 <body>
@@ -49,6 +50,7 @@ if (isset($_SESSION['error'])) {
                         <input type="submit" value="Registrar" name="register">
                         <input type="reset" value="Limpiar formulario">
                     </div>
+                    <div id="validationMessage"> </div> 
                     <a href="index.php">
                         <p id="volver">Volver a la página principal</p>
                     </a>
