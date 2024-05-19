@@ -1,4 +1,3 @@
-
 // Captura la selección del usuario. 
 $("select[name='eventName']").change(function() {
     var eventName = $(this).val();
