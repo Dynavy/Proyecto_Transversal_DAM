@@ -52,9 +52,6 @@ if (isset($_SESSION['error'])) {
                     </a>
 
                 </div>
-
-
-
             </form>
         </div>
     </div>

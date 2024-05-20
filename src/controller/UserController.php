@@ -45,6 +45,10 @@ class UserController
         $new_username = $_POST["new_username"];
         $new_password = $_POST["new_password"];
 
+        if (!empty($new_password)) {
+            $new_password = password_hash($new_password, PASSWORD_DEFAULT);
+        }
+
         try {
             $stmt = $this->conn->prepare("UPDATE USUARIO SET Correo_electronico=:new_username, Contrasena=:new_password WHERE Correo_electronico=:old_username");
             $stmt->bindParam(':new_username', $new_username, PDO::PARAM_STR);
@@ -72,59 +76,46 @@ class UserController
         echo '<script>window.location.href = "../view/index.php";</script>';
     }
 
+    // FUNCION PARA INICIAR SESIÓN.
     public function login(): void
     {
+        // Si no se recibe una solicitud post de login, retorna.
+        if ($_SERVER["REQUEST_METHOD"] !== "POST" || !isset($_POST["login"])) {
+            return;
+        }
 
-        // Limpiar cualquier mensaje de error anterior
-        unset($_SESSION["error"]);
         $username = $_POST["username"];
         $password = $_POST["password"];
-        $is_admin = false;
 
+        $stmt = $this->conn->prepare("SELECT Correo_electronico, Contrasena, esAdmin FROM USUARIO WHERE Correo_electronico=:username");
+        $stmt->bindParam(':username', $username, PDO::PARAM_STR);
+        $stmt->execute();
 
-        try {
+        // Obtenemos los resultados de la consulta y lo almacenamos en $user en un array associativo.
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-
-            $stmt = $this->conn->prepare("SELECT Correo_electronico, Contrasena, esAdmin FROM USUARIO WHERE Correo_electronico=:username AND Contrasena=:password");
-            $stmt->bindParam(':username', $username, PDO::PARAM_STR);
-            $stmt->bindParam(':password', $password, PDO::PARAM_STR);
-
-            $stmt->execute();
-            $stmt->bindColumn('esAdmin', $is_admin);
-
-            if ($stmt->fetch()) {
-                // Verificar si el usuario es administrador
-                if ($is_admin) {
-                    // Autenticación exitosa para el administrador
-                    $_SESSION["logged"] = true;
-                    $_SESSION["user"] = $username;
-                    $_SESSION["admin"] = true; // Establecer una bandera de sesión para administrador
-                    $conn = null;
-                    echo '<script>window.location.href = "../view/admin_profile.php";</script>'; // Redirigir al panel de administrador
-                    exit();
-                } else {
-                    // Autenticación exitosa para el usuario normal
-                    $_SESSION["logged"] = true;
-                    $_SESSION["user"] = $username;
-                    $conn = null;
-                    echo '<script>window.location.href = "../view/profile.php";</script>'; // Redirigir al panel de usuario normal
-                    exit();
-                }
-            } else {
-                // Falló la autenticación, mostrar un mensaje de error
-                $_SESSION["logged"] = false;
-                $_SESSION["error"] = "Usuario o contraseña incorrectos";
-                $conn = null;
-                echo '<script>window.location.href = "../view/login.php";</script>';
-                exit();
-            }
-        } catch (PDOException $e) {
-            echo "Connection failed: " . $e->getMessage();
+        // Usamos password_Verifi para encontrar la contraseña en la BD.
+        if (!$user || !password_verify($password, $user['Contrasena'])) {
+            $_SESSION["logged"] = false;
+            $_SESSION["error"] = "Usuario o contraseña incorrectos";
+            echo '<script>window.location.href = "../view/login.php";</script>'; // Redirigir al formulario de inicio de sesión
+            exit(); // Salir después de la redirección
         }
+
+        // Si ha encontrado la contraseña en la BD de datos ejecutamos las siguientes lineas.
+        $_SESSION["logged"] = true;
+        $_SESSION["user"] = $username;
+        // La variable de sesion sera true si el usuario es admin o false si no lo es.
+        $_SESSION["admin"] = $user['esAdmin'] == 1;
+
+        // Si es admin va a adminprofile.php y si es user va a profile.php 
+        $redirect_url = $_SESSION["admin"] ? "../view/admin_profile.php" : "../view/profile.php";
+        echo '<script>window.location.href = "' . $redirect_url . '";</script>'; 
+        exit();
     }
 
 
-
+    // FUNCION PARA HACER LOG OUT.
     public function logout(): void
     {
 
@@ -138,9 +129,7 @@ class UserController
 
     }
 
-    //REGISTER USER TO APPLICATION
-
-
+    // FUNCION PARA REGISTRARSE.
     public function register(): void
     {
 
@@ -168,10 +157,13 @@ class UserController
             exit();
         }
 
+        // Hasheamos la contraseña.
+        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+
         // Preparar la consulta SQL
         $stmt = $this->conn->prepare("INSERT INTO USUARIO (Correo_electronico, Contrasena, esAdmin) VALUES (:username, :password, :esAdmin)");
         $stmt->bindParam(':username', $username, PDO::PARAM_STR);
-        $stmt->bindParam(':password', $password, PDO::PARAM_STR);
+        $stmt->bindParam(':password', $hashed_password, PDO::PARAM_STR);
         $stmt->bindParam(':esAdmin', $esAdmin, PDO::PARAM_INT);
         // Ejecutar la consulta SQL
         if ($stmt->execute()) {
@@ -196,9 +188,5 @@ class UserController
 
 
 }
-
-
-
-
 
 ?>
