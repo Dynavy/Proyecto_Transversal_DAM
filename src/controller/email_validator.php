@@ -1,18 +1,25 @@
 <?php
 require_once 'Database.php';
 
-function validateEmail(){
+function validateEmail() {
 
-    $username = isset($_POST['username']) ? ($_POST['username']) : '';
+    $username = isset($_POST['username']) ? filter_var($_POST['username'], FILTER_SANITIZE_EMAIL) : '';
+
+    if (empty($username) || !filter_var($username, FILTER_VALIDATE_EMAIL)) {
+        echo json_encode(array("message" => "Complete los campos correctamente."));
+        return;
+    }
+
+
     $db = new Database();
     $conn = $db->getConnection();
-    $stmt = $conn->query("SELECT Correo_electronico FROM USUARIO");
+
+    $stmt = $conn->prepare("SELECT COUNT(*) FROM USUARIO WHERE Correo_electronico = :username");
+    $stmt->bindParam(':username', $username);
     $stmt->execute();
-    $resultados = $stmt->fetchAll(PDO::FETCH_COLUMN);
-    $response = null;
-    // Comparar el valor de 'username' con los correos electrónicos obtenidos
-    
-    if (in_array($username, $resultados)) {
+    $count = $stmt->fetchColumn();
+
+    if ($count > 0) {
         $response = array("message" => "Correo en uso, pruebe con otro.");
     } else {
         $response = array("message" => "Correo válido");
@@ -21,9 +28,5 @@ function validateEmail(){
     echo json_encode($response);
 }
 
- validateEmail();
-
-?>
-
-
+validateEmail();
 
