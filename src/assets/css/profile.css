@@ -8,8 +8,6 @@ body {
     vertical-align: middle;
     position: absolute;
     left: 26%;
-    width: 50%;
-
 }
 
 header {
@@ -18,8 +16,6 @@ header {
 }
 
 .texto_usuario {
-
-
     width: 50%;
     display: inline-block;
     height: 50%;
@@ -48,10 +44,6 @@ header {
     background-color: rgb(241, 182, 17);
     display: inline;
     border-radius: 10px;
-    
-
-
-    /* Hace que el fondo solo rodee al texto, no al contenedor completo */
 }
 
 .artistas {
@@ -195,4 +187,8 @@ button#accept-delete{
     background-color: rgba(0, 0, 0, 0.5); 
     display: none; 
     z-index: 9998;
+}
+
+h1 {
+    margin-left: 5px;
 }

@@ -55,6 +55,7 @@ class UserController
             $stmt->bindParam(':new_password', $new_password, PDO::PARAM_STR);
             $stmt->bindParam(':old_username', $old_username, PDO::PARAM_STR);
             $stmt->execute();
+            $_SESSION['showName'] = $new_username;
             echo '<script>window.location.href = "../view/profile.php";</script>';
         } catch (PDOException $e) {
             echo "Connection failed: " . $e->getMessage();
@@ -138,6 +139,8 @@ class UserController
         // Obtener datos del formulario
         $username = $_POST["username"];
         $password = $_POST["password"];
+
+        $_SESSION["showName"] = $username;
 
         // Modificar la obtención del valor de isAdmin
         $esAdmin = isset($_POST["esAdmin"]) && $_POST["esAdmin"] === "true";

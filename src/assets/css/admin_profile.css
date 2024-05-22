@@ -5,9 +5,14 @@ body {
 .centrar {
     text-align: center;
     vertical-align: middle;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
+    position: absolute;
+    left: 26%;
+    bottom: 2%;
+
+}
+
+h1 {
+    margin-left: 5px;
 }
 
 .update_a ul li button {
@@ -112,6 +117,7 @@ footer {
     display: inline-block;
     margin-right: 100px;
     vertical-align: middle;
+    
 }
 .update_a > button:nth-child(2):hover{
     background-color: red;
@@ -119,7 +125,7 @@ footer {
 
 .update_class > .update_a{
     display: inline-block;
-    margin-left: 350px;
+    margin-left: 360px;
     padding: 4px;
 }
 
@@ -132,7 +138,6 @@ footer {
     padding-top: 100px;
     margin-top: -0px;
     font-style: italic;
-
 
 }
 

@@ -21,13 +21,16 @@ require_once '../controller/ShowEventInformation.php';
 </head>
 
 <body>
+    <?php
+    $username = isset($_SESSION['showName']) ? $_SESSION['showName'] : 'User name';
+    ?>
     <div class="overlay" id="overlay"></div>
     <div class="centrar">
         <img id="img_fondo" src="../ASSETS/IMG/findurmusic.png" alt="logo_header_user" width="320" height="300">
         <header>
             <div class="header_usuario">
                 <div class="update_class">
-                    <h1>Admin Nombre</h1>
+                    <h1><?php echo $username; ?></h1>
                     <div class="update_a">
                         <button onclick="window.location.href='update_profile.php'">
                             <p>EDIT PROFILE</p>
@@ -106,7 +109,7 @@ require_once '../controller/ShowEventInformation.php';
 
                 <label for="eventName">Nombre del Concierto:</label>
                 <input type="text" id="eventName" name="eventName" required>
-                      
+
                 <label for="eventType">Tipo de evento:</label>
                 <input type="text" id="eventType" name="eventType" required>
 

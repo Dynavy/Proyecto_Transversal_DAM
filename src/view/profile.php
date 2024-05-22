@@ -1,3 +1,6 @@
+<?php 
+   session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,6 +15,9 @@
 
 <body>
 
+    <?php
+    $username = isset($_SESSION['showName']) ? $_SESSION['showName'] : 'User name';
+    ?>
     <div class="overlay" id="overlay"></div>
     <div class="centrar">
         <img id="img_fondo" src="../ASSETS/IMG/findurmusic.png" alt="logo_header_user" width="320" height="300">
@@ -19,7 +25,7 @@
 
             <div class="header_usuario">
                 <div class="update_class">
-                    <h1>Nombre Usuario</h1>
+                    <h1><?php echo $username; ?></h1>
                     <div class="update_a">
                         <button onclick="window.location.href='update_profile.php';">
                             <p>EDIT PROFILE</p>
@@ -31,7 +37,7 @@
                     </div>
 
                 </div>
-                
+
                 <div id="deleteProfile">
                     <p>¿Estás seguro de que quieres borrar tu cuenta? Esta acción no se puede deshacer.</p>
 
