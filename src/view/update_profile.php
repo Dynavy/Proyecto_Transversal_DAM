@@ -23,7 +23,7 @@ if (isset($_SESSION['error'])) {
     <script src="../assets/js/jquery.validate.js"></script>
     <script src="../assets/js/additional-methods.js"></script>
     <script src="../assets/js/updateProfile-validation.js" defer></script>
-
+    <script src="../assets/js/updateAjax.js" defer></script>
 </head>
 
 <body>
@@ -47,6 +47,8 @@ if (isset($_SESSION['error'])) {
 
                     <input type="hidden" name="old_username" value="<?php echo $username; ?>">
                     <input type="submit" value="Update" name="update">
+                    <input type="button" value="Update Ajax" name="updateAjax" id="updateAjax">
+
                     <input type="reset" value="Clear form">
 
                     <a href="index.php">
