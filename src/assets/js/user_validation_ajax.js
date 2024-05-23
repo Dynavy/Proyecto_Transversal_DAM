@@ -30,7 +30,7 @@ $(document).ready(function () {
 
     // No dejamos que el usuario interactue con el boton de registrar si el correo no es válido.
     $("#registerForm, #adminRegisterForm").submit(function (event) {
-        // Prevent form submission if the email is not valid
+        // Si interactua con el boton de submit y el boolean esta en false, advierte al uusario y no le deja hacer submit.
         if (!isEmailValid) {
             event.preventDefault();
             $("#validationMessage").text("Correo no válido, no se puede registrar").css("color", "red");
