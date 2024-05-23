@@ -15,15 +15,15 @@ $(document).ready(function () {
             success: function (data) {
                 if (data.message === "update_sucess") {
                     $("#validationMessage").text(data.message).css("color", "green");
-                    isEmailValid = true;
+                    window.location.href = "../view/profile.php";
                 } else {
                     $("#validationMessage").text(data.message).css("color", "red");
-                    isEmailValid = false;
+                   
                 }
             },
             error: function () {
                 $("#validationMessage").text("Error al procesar la solicitud").css("color", "red");
-                isEmailValid = false;
+                
             }
         });
     });

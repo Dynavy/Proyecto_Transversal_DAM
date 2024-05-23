@@ -48,17 +48,14 @@ if (isset($_SESSION['error'])) {
                     <input type="hidden" name="old_username" value="<?php echo $username; ?>">
                     <input type="submit" value="Update" name="update">
                     <input type="button" value="Update Ajax" name="updateAjax" id="updateAjax">
-
                     <input type="reset" value="Clear form">
-
+          
+                    <div id="validationMessage"></div>
                     <a href="index.php">
                         <p id="volver">Volver a la página principal</p>
                     </a>
 
                 </div>
-
-
-
             </form>
         </div>
     </div>
