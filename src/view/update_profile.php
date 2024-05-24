@@ -35,12 +35,12 @@ if (isset($_SESSION['error'])) {
                 <img id="logo" src="../ASSETS/IMG/findurmusic.png" alt="logo" alt="logo" width="210" height="200">
                 <div class="center_text">
                     <div class="moverInput">
-                        <label>Nuevo Email:</label><br>
+                        <label>Modificar Email:</label><br>
                         <input id="usuario" type="text" placeholder="Introduce el nuevo correo..." name="new_username"
                             required>
                     </div>
                     <div class="moverInput">
-                        <label for="pass">Nueva contraseña:</label><br>
+                        <label for="pass">Modificar contraseña:</label><br>
                         <input type="password" id="pass" name="new_password"
                             placeholder="Escribe la nueva contraseña...">
                     </div>
