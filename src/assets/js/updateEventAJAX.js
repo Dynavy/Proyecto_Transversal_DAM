@@ -7,6 +7,7 @@ $(document).ready(function () {
         let newEventLocationAJAX = $("input[name='newEventLocation']").val();
         let newEventTypeAJAX = $("input[name='newEventType']").val();
 
+       
         $("#newEventNameError").text("");
 
         if (oldEventNameAJAX === '' || newEventNameAJAX === '' || newEventLocationAJAX === '' || newEventTypeAJAX === '') {

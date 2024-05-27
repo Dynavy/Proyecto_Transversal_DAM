@@ -1,11 +1,11 @@
 <?php
 require_once 'Database.php';
-session_start();
+
 function updateCredentials()
 {
     $old_username = isset($_SESSION['user']) ? ($_SESSION['user']) : '';
 
-    $new_email = isset($_POST['new_username']) ? ($_POST['new_username']) : '';
+    $new_email = isset($_POST['new_email']) ? ($_POST['new_email']) : '';
 
     $new_password = isset($_POST['new_password']) ? ($_POST['new_password']) : '';
 
@@ -15,7 +15,7 @@ function updateCredentials()
     $successIdentifier = "update_success";
     $errorIdentifier = "update_error";
 
-    
+
     $db = new Database();
     $conn = $db->getConnection();
     try {
@@ -24,14 +24,19 @@ function updateCredentials()
         $stmt->bindParam(':new_password', $new_password, PDO::PARAM_STR);
         $stmt->bindParam(':old_username', $old_username, PDO::PARAM_STR);
         $stmt->execute();
-        $_SESSION['showName'] = $new_email;
+        
+        if (!empty($new_email)) {
+            $_SESSION['showName'] = $_POST['new_email'];
+        }
         $success = true;
     } catch (PDOException $e) {
         echo "Connection failed: " . $e->getMessage();
         $success = false;
     }
-    
+
+    // Si todo se ha hecho correctamente, mandamos esta respuesta al AJAX
     if ($success) {
+
         $response = array(
             "message" => $messageSuccess,
             "identifier" => $successIdentifier
@@ -43,6 +48,6 @@ function updateCredentials()
         );
     }
     echo json_encode($response);
-    
+
 }
 updateCredentials();

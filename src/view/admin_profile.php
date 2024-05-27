@@ -17,7 +17,7 @@ require_once '../controller/ShowEventInformation.php';
     <script src="../assets/js/deleteProfile.js" defer></script>
     <script src="../assets/js/modal.js" defer></script>
     <script src="../assets/js/EventDetailsAJAX.js" defer></script>
-
+    <script src="../assets/js/updateEventAJAX.js" defer></script>
 </head>
 
 <body>
@@ -83,7 +83,6 @@ require_once '../controller/ShowEventInformation.php';
                         }
                         ?>
                     </ul>
-
                 </div>
             </div>
             <br>
@@ -132,7 +131,6 @@ require_once '../controller/ShowEventInformation.php';
                 <label for="nombre_concierto">Conciertos a modificar:</label>
 
                 <?php showEventNames(); ?>
-
                 <br>
                 <label for="newEventName">Modificar nombre del evento:</label>
                 <input type="text" id="newEventName" name="newEventName" required>
@@ -144,6 +142,9 @@ require_once '../controller/ShowEventInformation.php';
                 <input type="text" id="newEventLocation" name="newEventLocation" required> <br>
 
                 <input type="submit" value="Actualizar Evento" id="updateEventButton" name="updateEvent" required>
+                <input type="button" value="Actualizar Evento AJAX" id="AjaxUpdateEventButton" name="updateEvent" required>
+                <br>
+                <span id="newEventNameError" class="error-message"></span>
             </form>
         </div>
     </div>
@@ -160,13 +161,10 @@ require_once '../controller/ShowEventInformation.php';
 
                 <?php showEventNames(); ?>
 
-
                 <input type="submit" value="Eliminar Evento" name="deleteEvent" required>
             </form>
         </div>
     </div>
-
-
 </body>
 
 </html>

@@ -3,7 +3,7 @@ session_start();
 
 // Mostrar el mensaje de error si está presente
 if (isset($_SESSION['error'])) {
-    echo "<h1>{$_SESSION['error']}</h1>";
+    echo "<h1 style='color: red;'>{$_SESSION['error']}</h1>";
     unset($_SESSION['error']); // Eliminar el mensaje de error después de mostrarlo
 }
 
@@ -23,7 +23,7 @@ if (isset($_SESSION['error'])) {
     <script src="../assets/js/jquery.validate.js"></script>
     <script src="../assets/js/additional-methods.js"></script>
     <script src="../assets/js/updateProfile-validation.js" defer></script>
-    <script src="../assets/js/updateAjax.js" defer></script>
+    <script src="../assets/js/updateProfileAJAX.js" defer></script>
 </head>
 
 <body>

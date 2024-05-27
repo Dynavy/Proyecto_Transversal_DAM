@@ -40,25 +40,45 @@ class UserController
     //update 
     public function update(): void
     {
-
         $old_username = $_SESSION["user"];
         $new_username = $_POST["new_username"];
         $new_password = $_POST["new_password"];
-
+    
+        // Si se proporcionó una nueva contraseña, hashéala.
         if (!empty($new_password)) {
             $new_password = password_hash($new_password, PASSWORD_DEFAULT);
         }
-
+    
+        // Verificar si el correo ya existe en la base de datos.
+        $stmt = $this->conn->prepare("SELECT COUNT(*) AS count FROM USUARIO WHERE Correo_electronico = :new_username AND Correo_electronico != :old_username");
+        $stmt->bindParam(':new_username', $new_username, PDO::PARAM_STR);
+        $stmt->bindParam(':old_username', $old_username, PDO::PARAM_STR);
+        $stmt->execute();
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        
+        // Si el correo no está disponible, informamos al usuario.
+        if ($result['count'] > 0) {
+             $_SESSION['error'] = "El nuevo nombre de usuario '$new_username' no esta disponible, inténtelo otra vez.";
+             echo '<script>window.location.href = "../view/update_profile.php";</script>';
+            exit();
+        }
+    
         try {
+            // Actualizar el usuario.
             $stmt = $this->conn->prepare("UPDATE USUARIO SET Correo_electronico=:new_username, Contrasena=:new_password WHERE Correo_electronico=:old_username");
             $stmt->bindParam(':new_username', $new_username, PDO::PARAM_STR);
             $stmt->bindParam(':new_password', $new_password, PDO::PARAM_STR);
             $stmt->bindParam(':old_username', $old_username, PDO::PARAM_STR);
             $stmt->execute();
+    
+            // Actualizar el nuevo nombre de usuario para que se muestre en el perfil.
             $_SESSION['showName'] = $new_username;
+    
+            // Redirigir a la página de perfil.
             echo '<script>window.location.href = "../view/profile.php";</script>';
+            exit();
         } catch (PDOException $e) {
-            echo "Connection failed: " . $e->getMessage();
+            echo "Error al actualizar el usuario: " . $e->getMessage();
         }
     }
     public function delete(): void
@@ -87,7 +107,7 @@ class UserController
 
         $username = $_POST["username"];
         $password = $_POST["password"];
-
+        $_SESSION["showName"] = $username;
         $stmt = $this->conn->prepare("SELECT Correo_electronico, Contrasena, esAdmin FROM USUARIO WHERE Correo_electronico=:username");
         $stmt->bindParam(':username', $username, PDO::PARAM_STR);
         $stmt->execute();

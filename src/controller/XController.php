@@ -19,7 +19,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $event->delete();
     }
 }
-
 class AdminController
 {
     private $conn;
@@ -32,7 +31,6 @@ class AdminController
 
     public function create(): void
     {
-
         $eventName = $_POST["eventName"];
         $eventLocation = $_POST["eventLocation"];
         $eventType = $_POST["eventType"];
@@ -64,8 +62,6 @@ class AdminController
 
     public function update(): void
     {
-
-
         $oldEventName = $_POST['eventName'];
         $newEventName = $_POST["newEventName"];
         $newEventLocation = $_POST["newEventLocation"];
@@ -89,10 +85,6 @@ class AdminController
         try {
             // Ejecutar la consulta.
             $stmt->execute();
-            // Inicializar el array en la sesión si no existe.
-            if (!isset($_SESSION["eventName"])) {
-                $_SESSION["eventName"] = array();
-            }
             // Mensaje para notificar al usuario.
             $_SESSION['success_message'] = "El evento '$oldEventName' se ha actualizado correctamente.";
 
@@ -101,21 +93,17 @@ class AdminController
         }
         echo '<script>window.location.href = "../view/admin_profile.php";</script>';
         exit();
-
     }
 
     public function delete(): void
     {
-
         $eventName = $_POST['eventName'];
-
         // Manejo de errores de parte del servidor.
         if (empty($eventName)) {
             $_SESSION['error_message'] = "Todos los campos son obligatorios.";
             header('Location: ../view/admin_profile.php');
             exit();
         }
-
         try {
             $stmt = $this->conn->prepare("DELETE FROM Evento WHERE Nombre=:eventName");
             $stmt->bindParam(':eventName', $eventName, PDO::PARAM_STR);

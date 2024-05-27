@@ -3,12 +3,10 @@ $(document).ready(function () {
     let isEmailValid = false;
 
     $("input[name='username']").blur(function () {
-        // Hacemos la solicitud ajax al servidor 'email_validator.php'.
+       
         let usernameAjax = $(this).val();
-
-
         $.ajax({
-            url: "../controller/email_validator.php",
+            url: "../controller/emailValidationAJAX.php",
             type: "POST",
             dataType: "json",
             data: { username: usernameAjax },

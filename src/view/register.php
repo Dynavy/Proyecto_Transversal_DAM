@@ -21,7 +21,7 @@ if (isset($_SESSION['error'])) {
     <script src="../assets/js/jquery.validate.js"></script>
     <script src="../assets/js/additional-methods.js"></script>
     <script src="../assets/js/register-validation.js" defer></script>
-    <script src="../assets/js/user_validation_ajax.js" defer></script>
+    <script src="../assets/js/emailValidationAJAX.js" defer></script>
 
 </head>
 
