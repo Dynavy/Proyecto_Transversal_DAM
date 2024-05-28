@@ -23,7 +23,6 @@ function updateCredentials()
     if (!empty($new_password)) {
         $new_password = password_hash($new_password, PASSWORD_DEFAULT);
     }
-
     // Conexión a la base de datos.
     $db = new Database();
     $conn = $db->getConnection();
@@ -44,7 +43,7 @@ function updateCredentials()
         echo json_encode($response);
         exit();
     }
-
+    // Update en la base de datos con los nuevos datos.
     try {
         $stmt = $conn->prepare("UPDATE USUARIO SET Correo_electronico=:new_username, Contrasena=:new_password WHERE Correo_electronico=:old_username");
         $stmt->bindParam(':new_username', $new_email, PDO::PARAM_STR);
