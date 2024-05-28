@@ -44,7 +44,7 @@ class UserController
         $new_username = $_POST["new_username"];
         $new_password = $_POST["new_password"];
     
-        // Si se proporcionó una nueva contraseña, hashéala.
+        // Hashear la nueva contraseña.
         if (!empty($new_password)) {
             $new_password = password_hash($new_password, PASSWORD_DEFAULT);
         }
@@ -70,8 +70,10 @@ class UserController
             $stmt->bindParam(':new_password', $new_password, PDO::PARAM_STR);
             $stmt->bindParam(':old_username', $old_username, PDO::PARAM_STR);
             $stmt->execute();
-    
-            // Actualizar el nuevo nombre de usuario para que se muestre en el perfil.
+            
+            // Actualizar el nuevo nombre email.
+            $_SESSION['user'] = $new_username; 
+            // Actualizar el nuevo email para que se muestre en el perfil.
             $_SESSION['showName'] = $new_username;
     
             // Redirigir a la página de perfil.

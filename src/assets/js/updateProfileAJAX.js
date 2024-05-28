@@ -17,13 +17,13 @@ $(document).ready(function () {
                 success: function (data) {
                     if (data.identifier === "update_success") {
                         $("#validationMessage").text(data.message).css("color", "green");
-                        window.location.href = "../view/profile.php";
+                        
                     } else {
                         $("#validationMessage").text(data.message).css("color", "red");
                     }
                 },
                 error: function () {
-                    $("#validationMessage").text("Error al procesar la solicitud").css("color", "red");
+                    $("#validationMessage").text("Error en la la respuesta del servidor.").css("color", "red");
 
                 }
             });
