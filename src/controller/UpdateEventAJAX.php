@@ -18,6 +18,19 @@ try {
     $db = new Database();
     $conn = $db->getConnection();
 
+    $stmt = $conn->prepare("SELECT COUNT(*) AS count FROM EVENTO WHERE Nombre = :newEventName");
+    $stmt->bindParam(':newEventName', $newEventName, PDO::PARAM_STR);
+    $stmt->execute();
+    $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    // Si el evento ya existe, informar al usuario y salir del método.
+    if ($result['count'] > 0) {
+        $response['status'] = 'error';
+        $response['message'] = "El evento '$newEventName' ya existe en la base de datos, inténtelo de nuevo.";
+        echo json_encode($response);
+        exit();
+    }
+
     $stmt = $conn->prepare("UPDATE EVENTO 
     SET nombre = :newEventName, localizacion = :newEventLocation, tipo = :newEventType 
     WHERE nombre = :oldEventName");
@@ -27,13 +40,11 @@ try {
     $stmt->bindParam(':newEventType', $newEventType, PDO::PARAM_STR);
 
     if ($stmt->execute()) {
-        $responde['status'] = 'success';
+        $response['status'] = 'success';
         $response['message'] = "El evento $oldEventName se ha actualizado correctamente mediante AJAX.";
-        $_SESSION['success_message'] = $response['message'];
     } else {
         $responde['status'] = 'error';
         $response['message'] = "Error al actualizar el evento mediante AJAX.";
-        $_SESSION['success_message'] = $response['message'];
     }
 } catch (PDOException $updateError) {
     $response['status'] = 'error';

@@ -7,14 +7,6 @@ $(document).ready(function () {
         let newEventLocationAJAX = $("input[name='newEventLocation']").val();
         let newEventTypeAJAX = $("input[name='newEventType']").val();
 
-       
-        $("#newEventNameError").text("");
-
-        if (oldEventNameAJAX === '' || newEventNameAJAX === '' || newEventLocationAJAX === '' || newEventTypeAJAX === '') {
-            $("#newEventNameError").text("Todos los campos son obligatorios.").css("color", "red");
-            return;
-        }
-
         $.ajax({
             url: "../controller/updateEventAJAX.php",
             type: "POST",
@@ -25,13 +17,13 @@ $(document).ready(function () {
                 newEventLocation: newEventLocationAJAX,
                 newEventType: newEventTypeAJAX
             },
-            success: function (data) {
-
-                if (data.message) {
-
-                    window.location.href = "../view/admin_profile.php";
+            success: function (data) {  
+                if (data.status === 'success') {
+                    $('#error-message-container').text('');
+                    $('#success-message-container').text(data.message).css('color', 'green');
+                } else {
+                    $('#error-message-container').text(data.message).css('color', 'red');
                 }
-
             },
             error: function () {
                 console.log("Error al procesar la solicitud.");
