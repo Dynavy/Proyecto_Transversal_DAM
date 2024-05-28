@@ -1,6 +1,5 @@
 <?php
 require_once 'Database.php';
-session_start();
 
 $oldEventName = isset($_POST['oldEventName']) ? ($_POST['oldEventName']) : '';
 $newEventName = isset($_POST['newEventName']) ? ($_POST['newEventName']) : '';
