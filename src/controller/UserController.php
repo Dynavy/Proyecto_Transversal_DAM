@@ -41,41 +41,47 @@ class UserController
     public function update(): void
     {
         $old_username = $_SESSION["user"];
-        $new_username = $_POST["new_username"];
+        $new_email = $_POST["new_username"];
         $new_password = $_POST["new_password"];
-    
-        // Hashear la nueva contraseña.
+
+        // Validar que los inputs no esten vacíos.
+        if (empty($new_email) || empty($new_password)) {
+            $_SESSION['error'] = 'El nuevo nombre de usuario y la nueva contraseña no deben estar vacíos.';
+            echo '<script>window.location.href = "../view/update_profile.php";</script>';
+            exit();
+        }
+        // Hashear la nueva contraseña siempre y cuándo el campo no este vacío.
         if (!empty($new_password)) {
             $new_password = password_hash($new_password, PASSWORD_DEFAULT);
         }
-    
+
         // Verificar si el correo ya existe en la base de datos.
         $stmt = $this->conn->prepare("SELECT COUNT(*) AS count FROM USUARIO WHERE Correo_electronico = :new_username AND Correo_electronico != :old_username");
-        $stmt->bindParam(':new_username', $new_username, PDO::PARAM_STR);
+        $stmt->bindParam(':new_username', $new_email, PDO::PARAM_STR);
         $stmt->bindParam(':old_username', $old_username, PDO::PARAM_STR);
         $stmt->execute();
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
-        
+
         // Si el correo no está disponible, informamos al usuario.
         if ($result['count'] > 0) {
-             $_SESSION['error'] = "El nuevo nombre de usuario '$new_username' no esta disponible, inténtelo otra vez.";
-             echo '<script>window.location.href = "../view/update_profile.php";</script>';
+            $_SESSION['error'] = "El nuevo nombre de usuario '$new_email' no esta disponible, inténtelo otra vez.";
+            echo '<script>window.location.href = "../view/update_profile.php";</script>';
             exit();
         }
-    
+
         try {
             // Actualizar el usuario.
             $stmt = $this->conn->prepare("UPDATE USUARIO SET Correo_electronico=:new_username, Contrasena=:new_password WHERE Correo_electronico=:old_username");
-            $stmt->bindParam(':new_username', $new_username, PDO::PARAM_STR);
+            $stmt->bindParam(':new_username', $new_email, PDO::PARAM_STR);
             $stmt->bindParam(':new_password', $new_password, PDO::PARAM_STR);
             $stmt->bindParam(':old_username', $old_username, PDO::PARAM_STR);
             $stmt->execute();
-            
+
             // Actualizar el nuevo nombre email.
-            $_SESSION['user'] = $new_username; 
+            $_SESSION['user'] = $new_email;
             // Actualizar el nuevo email para que se muestre en el perfil.
-            $_SESSION['showName'] = $new_username;
-    
+            $_SESSION['showName'] = $new_email;
+
             // Redirigir a la página de perfil.
             echo '<script>window.location.href = "../view/profile.php";</script>';
             exit();
@@ -85,11 +91,19 @@ class UserController
     }
     public function delete(): void
     {
+        if (isset($_SESSION["user"])) {
+            $mail = $_SESSION["user"];
+           
+        } else {
+            echo '<h1 style="color: red; text-align: center;">No hay ninguna cuenta disponible para borrar.<br>
+            Redirigiendo al menú en 5 segundos...</h1>';
+            echo '<meta http-equiv="refresh" content="5;url=../view/index.php">';
+            exit(); 
+        }
 
-        $username = $_SESSION["user"];
         try {
             $stmt = $this->conn->prepare("DELETE FROM Usuario WHERE Correo_electronico=:username");
-            $stmt->bindParam(':username', $username, PDO::PARAM_STR);
+            $stmt->bindParam(':username', $mail, PDO::PARAM_STR);
             $stmt->execute();
             $this->logout();
 
@@ -117,7 +131,7 @@ class UserController
         // Obtenemos los resultados de la consulta y lo almacenamos en $user en un array associativo.
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        // Usamos password_Verifi para encontrar la contraseña en la BD.
+        // Usamos password_Verify para encontrar la contraseña en la BD.
         if (!$user || !password_verify($password, $user['Contrasena'])) {
             $_SESSION["logged"] = false;
             $_SESSION["error"] = "Usuario o contraseña incorrectos";
@@ -133,7 +147,7 @@ class UserController
 
         // Si es admin va a adminprofile.php y si es user va a profile.php 
         $redirect_url = $_SESSION["admin"] ? "../view/admin_profile.php" : "../view/profile.php";
-        echo '<script>window.location.href = "' . $redirect_url . '";</script>'; 
+        echo '<script>window.location.href = "' . $redirect_url . '";</script>';
         exit();
     }
 
@@ -149,14 +163,12 @@ class UserController
         session_destroy();
         //redirect to index page
         echo '<script>window.location.href = "../view/index.php";</script>';
-
     }
 
     // FUNCION PARA REGISTRARSE.
     public function register(): void
     {
-
-        // Limpiar cualquier mensaje de error anterior
+        // Limpiar cualquier mensaje de error anterior.
         unset($_SESSION["error"]);
         // Obtener datos del formulario
         $username = $_POST["username"];
@@ -164,21 +176,20 @@ class UserController
 
         $_SESSION["showName"] = $username;
 
-        // Modificar la obtención del valor de isAdmin
+        // Modificar la obtención del valor de isAdmin.
         $esAdmin = isset($_POST["esAdmin"]) && $_POST["esAdmin"] === "true";
 
-        // Validar el formato de correo electrónico
+        // Validar el formato de correo electrónico.
         if (!filter_var($username, FILTER_VALIDATE_EMAIL)) {
             $_SESSION["error"] = "<span style='color: red;'>Invalid email format, try again please.</span>";
-            // Redireccionar al formulario de registro
+            // Redireccionar al formulario de registro.
             if ($esAdmin) {
-                $_SESSION["admin"] = true; // Establecer una bandera de sesión para administrador
+                $_SESSION["admin"] = true; // Establecer una bandera de sesión para administrador.
 
                 echo '<script>window.location.href = "../view/admin_register.php";</script>';
             } else {
                 echo '<script>window.location.href = "../view/register.php";</script>';
             }
-
             exit();
         }
 
