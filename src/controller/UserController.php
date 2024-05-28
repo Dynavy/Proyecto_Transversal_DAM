@@ -1,7 +1,7 @@
 <?php
 
 require_once 'Database.php';
-session_start();
+
 
 //Check if form is submitted
 $user = new UserController();
@@ -100,12 +100,12 @@ class UserController
     {
         if (isset($_SESSION["user"])) {
             $mail = $_SESSION["user"];
-           
+
         } else {
             echo '<h1 style="color: red; text-align: center;">No hay ninguna cuenta disponible para borrar.<br>
             Redirigiendo al menú en 5 segundos...</h1>';
             echo '<meta http-equiv="refresh" content="5;url=../view/index.php">';
-            exit(); 
+            exit();
         }
 
         try {
