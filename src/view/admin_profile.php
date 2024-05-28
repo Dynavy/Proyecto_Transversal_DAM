@@ -39,7 +39,6 @@ require_once '../controller/ShowEventInformation.php';
                         <button id="deleteButton">
                             <p>DELETE PROFILE</p>
                         </button>
-
                     </div>
                 </div>
 
@@ -70,17 +69,10 @@ require_once '../controller/ShowEventInformation.php';
                         <li><button id="openDeleteModal">3. DELETE EVENT</button></li>
                         <br>
                         <?php
-
-                        // Mensajes de éxito al hacer operaciones con el XController.
-                        if (isset($_SESSION['success_message'])) {
-                            echo '<span class="success-message">' . $_SESSION['success_message'] . '</p>';
-                            unset($_SESSION['success_message']); // Limpiar el mensaje después de mostrarlo
-                        }
-                        // Mensajes de error al hacer operaciones con el XController.
-                        if (isset($_SESSION['error_message'])) {
-                            echo '<span class="success-message">' . $_SESSION['success_message'] . '</p>';
-                            unset($_SESSION['success_message']); // Limpiar el mensaje después de mostrarlo
-                        }
+                        echo isset($_SESSION['success_message']) ? '<span class="success-message">' . $_SESSION['success_message'] . '</span>' : '';
+                        unset($_SESSION['success_message']);
+                        echo isset($_SESSION['error_message']) ? '<span class="error-message">' . $_SESSION['error_message'] . '</span>' : '';
+                        unset($_SESSION['error_message']);
                         ?>
                     </ul>
                 </div>
@@ -144,7 +136,8 @@ require_once '../controller/ShowEventInformation.php';
                 <input type="submit" value="Actualizar Evento" id="updateEventButton" name="updateEvent" required>
                 <input type="button" value="Actualizar Evento AJAX" id="AjaxUpdateEventButton" name="updateEvent" required>
                 <br>
-                <span id="newEventNameError" class="error-message"></span>
+                <span id="success-message-container"></span>
+                <span id="error-message-container" ></span>
             </form>
         </div>
     </div>

@@ -1,7 +1,7 @@
 <?php
 
 require_once 'Database.php';
-session_start();
+
 
 $event = new AdminController();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -42,6 +42,18 @@ class AdminController
             exit();
         }
 
+        $stmt = $this->conn->prepare("SELECT COUNT(*) AS count FROM EVENTO WHERE Nombre = :eventName");
+        $stmt->bindParam(':eventName', $eventName, PDO::PARAM_STR);
+        $stmt->execute();
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+    
+        // Si el evento ya existe, informar al usuario y salir del método.
+        if ($result['count'] > 0) {
+            $_SESSION['error_message'] = "El evento '$eventName' ya existe en la base de datos, inténtelo de nuevo.";
+            header('Location: ../view/admin_profile.php');
+            exit();
+        }
+
         $stmt = $this->conn->prepare("INSERT INTO EVENTO (Nombre, Localizacion, Tipo) VALUES (:eventName, :eventLocation, :eventType)");
         $stmt->bindParam(':eventName', $eventName, PDO::PARAM_STR);
         $stmt->bindParam(':eventLocation', $eventLocation, PDO::PARAM_STR);
@@ -74,6 +86,20 @@ class AdminController
             exit();
         }
 
+        // Verificar si el nuevo nombre del evento ya existe en la base de datos.
+        $stmt = $this->conn->prepare("SELECT COUNT(*) AS count FROM EVENTO WHERE nombre = :newEventName");
+        $stmt->bindParam(':newEventName', $newEventName, PDO::PARAM_STR);
+        $stmt->execute();
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        // Si el nuevo nombre del evento ya existe, informar al usuario.
+        if ($result['count'] > 0) {
+            $_SESSION['error_message'] = "El nuevo nombre del evento '$newEventName' ya existe. Por favor, elija un nombre diferente.";
+            header('Location: ../view/admin_profile.php');
+            exit();
+        }
+        
+        // Actualización del evento.
         $stmt = $this->conn->prepare("UPDATE EVENTO 
         SET nombre = :newEventName, localizacion = :newEventLocation, tipo = :newEventType 
         WHERE nombre = :oldEventName");
@@ -85,9 +111,8 @@ class AdminController
         try {
             // Ejecutar la consulta.
             $stmt->execute();
-            // Mensaje para notificar al usuario.
+            // Mensaje para notificar al usuario de la actualización.
             $_SESSION['success_message'] = "El evento '$oldEventName' se ha actualizado correctamente.";
-
         } catch (PDOException $e) {
             die("Error en la actualización del evento: " . $e->getMessage());
         }
