@@ -9,9 +9,9 @@ class Database {
     {
         $servername = "127.0.0.1";
         $username = "root";
-        $password = "root";
+        $password = "";
         $dbname = "ProyectoBD";
-        $db_port = 8889;
+        $db_port = 3306;
 
         try {
             $dsn = "mysql:host=$servername;dbname=$dbname;port=$db_port";

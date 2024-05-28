@@ -40,6 +40,12 @@ class UserController
     //update 
     public function update(): void
     {
+        // Validación para que un usuario no pueda actualizar su cuenta si no esta logueado.
+        if (empty($_SESSION["user"])) {
+            $_SESSION['error'] = 'Has sido redirigido a la pantalla de Login ya que tu sesión no era válida.';
+            echo '<script>window.location.href = "../view/login.php";</script>';
+            exit();
+        }
         $old_username = $_SESSION["user"];
         $new_email = $_POST["new_username"];
         $new_password = $_POST["new_password"];
@@ -82,8 +88,9 @@ class UserController
             // Actualizar el nuevo email para que se muestre en el perfil.
             $_SESSION['showName'] = $new_email;
 
-            // Redirigir a la página de perfil.
-            echo '<script>window.location.href = "../view/profile.php";</script>';
+            // Redirecciones dependiendo de si es admin o no.
+            $redirect_url = $_SESSION["admin"] ? "../view/admin_profile.php" : "../view/profile.php";
+            echo '<script>window.location.href = "' . $redirect_url . '";</script>';
             exit();
         } catch (PDOException $e) {
             echo "Error al actualizar el usuario: " . $e->getMessage();
@@ -120,7 +127,6 @@ class UserController
         if ($_SERVER["REQUEST_METHOD"] !== "POST" || !isset($_POST["login"])) {
             return;
         }
-
         $username = $_POST["username"];
         $password = $_POST["password"];
         $_SESSION["showName"] = $username;
@@ -138,7 +144,6 @@ class UserController
             echo '<script>window.location.href = "../view/login.php";</script>'; // Redirigir al formulario de inicio de sesión
             exit(); // Salir después de la redirección
         }
-
         // Si ha encontrado la contraseña en la BD de datos ejecutamos las siguientes lineas.
         $_SESSION["logged"] = true;
         $_SESSION["user"] = $username;
