@@ -85,11 +85,13 @@ class UserController
 
             // Actualizar el nuevo nombre email.
             $_SESSION['user'] = $new_email;
+            $_SESSION["password"] = $_POST["new_password"];
             // Actualizar el nuevo email para que se muestre en el perfil.
             $_SESSION['showName'] = $new_email;
 
             // Redirecciones dependiendo de si es admin o no.
             $redirect_url = $_SESSION["admin"] ? "../view/admin_profile.php" : "../view/profile.php";
+
             echo '<script>window.location.href = "' . $redirect_url . '";</script>';
             exit();
         } catch (PDOException $e) {
@@ -98,13 +100,13 @@ class UserController
     }
     public function delete(): void
     {
+        // Si no existe la variable de sesión use, es que no existe una cuenta para borrar.
         if (isset($_SESSION["user"])) {
             $mail = $_SESSION["user"];
 
         } else {
-            echo '<h1 style="color: red; text-align: center;">No hay ninguna cuenta disponible para borrar.<br>
-            Redirigiendo al menú en 5 segundos...</h1>';
-            echo '<meta http-equiv="refresh" content="5;url=../view/index.php">';
+            $_SESSION['error'] = 'Has sido redirigido a la pantalla de Login ya que tu sesión no era válida.';
+            echo '<script>window.location.href = "../view/login.php";</script>';
             exit();
         }
 
@@ -211,6 +213,7 @@ class UserController
             // Registro exitoso, establecer variables de sesión y redirigir
             $_SESSION["logged"] = true;
             $_SESSION["user"] = $username;
+            $_SESSION["password"] = $_POST["password"];
             if ($esAdmin) {
                 $_SESSION["admin"] = true; // Establecer una bandera de sesión para administrador
 

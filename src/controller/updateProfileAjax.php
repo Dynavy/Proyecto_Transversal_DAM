@@ -52,6 +52,7 @@ function updateCredentials()
         $stmt->execute();
         $success = true;
         $_SESSION["user"] = $_POST['new_email'];
+        $_SESSION["password"] = $_POST['new_password'];
     } catch (PDOException $e) {
         echo "Connection failed: " . $e->getMessage();
         $success = false;

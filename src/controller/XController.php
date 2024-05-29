@@ -81,7 +81,7 @@ class AdminController
 
         // Manejo de errores de parte del servidor.
         if (empty($oldEventName) || empty($newEventName) || empty($newEventLocation) || empty($newEventType)) {
-            $_SESSION['error_message'] = "Todos los campos son obligatorios.";
+            $_SESSION['error_message'] = "Todos los campos son obligatorios para actualizar el evento.";
             header('Location: ../view/admin_profile.php');
             exit();
         }

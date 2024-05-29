@@ -27,7 +27,10 @@ if (isset($_SESSION['error'])) {
 </head>
 
 <body>
-
+    <?php
+    $mail = isset($_SESSION['user']) ? $_SESSION['user'] : '';
+    $password = isset($_SESSION['password']) ? $_SESSION['password'] : '';
+    ?>
     <div class="container">
         <div class="center">
             <form id="updateProfileForm" action="../controller/UserController.php" method="POST">
@@ -37,19 +40,20 @@ if (isset($_SESSION['error'])) {
                     <div class="moverInput">
                         <label>Modificar Email:</label><br>
                         <input id="usuario" type="text" placeholder="Introduce el nuevo correo..." name="new_username"
-                            required>
+                            value="<?php echo $mail;?>" required>
                     </div>
                     <div class="moverInput">
                         <label for="pass">Modificar contraseña:</label><br>
                         <input type="password" id="pass" name="new_password"
-                            placeholder="Escribe la nueva contraseña...">
+                            placeholder="Escribe la nueva contraseña..." value="<?php echo $password;?>"
+                            required>
                     </div>
 
-                    <input type="hidden" name="old_username" value="<?php echo $username; ?>">
+                    
                     <input type="submit" value="Update" name="update">
                     <input type="button" value="Update Ajax" name="updateAjax" id="updateAjax">
                     <input type="reset" value="Clear form">
-          
+
                     <div id="validationMessage"></div>
                     <a href="index.php">
                         <p id="volver">Volver a la página principal</p>
