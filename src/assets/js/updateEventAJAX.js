@@ -22,6 +22,7 @@ $(document).ready(function () {
                     $('#error-message-container').text('');
                     $('#success-message-container').text(data.message).css('color', 'green');
                 } else {
+                    $('#success-message-container').text('');
                     $('#error-message-container').text(data.message).css('color', 'red');
                 }
             },
