@@ -19,6 +19,7 @@ require_once '../controller/ShowEventInformation.php';
     <script src="../assets/jQuery/jquery-3.7.1.min.js"></script>
     <script src="../assets/slick/slick/slick.js"></script>
     <script src="../assets/js/jQuery.js" defer></script>
+    <script src="../assets/js/paginationAJAX.js" defer></script>
 
 
 </head>
@@ -244,14 +245,22 @@ require_once '../controller/ShowEventInformation.php';
 
 <div class="flex-container eventSlider">
 
-
-        <?php showEventsInfo(); ?>
-       
+    <?php showEventsInfo(); ?>
 
 </div>
 
-<h1 id="descubre"> ¡Disfruta de tus artistas favoritos!</h1>
+<h1 id="descubre"> PAGINACIÓN CON AJAX</h1>
 
+<ul id="events-list"></ul>
+
+</div>
+
+<div id="button-container">
+    <button id="prev-btn">Anteriores 5 eventos</button>
+    <button id="next-btn">Siguientes 5 eventos</button>
+</div>
+
+<h1 id="descubre"> ¡Disfruta de tus artistas favoritos!</h1>
 
 <div class="flex-container eventSlider">
 

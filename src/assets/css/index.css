@@ -17,10 +17,38 @@ header {
 body {
     background-color: rgb(236, 236, 160);
     margin: 0;
-  
+
 }
 
-.event-details p:first-child     {
+#button-container {
+    max-width: 300px; 
+    margin: 0 auto; 
+}
+
+
+#prev-btn,
+#next-btn {
+    display: inline-block; 
+}
+
+#events-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    list-style-type: none;
+    padding: 0;
+}
+
+#events-list li {
+    flex: 0 0 calc(20% - 20px);
+    margin: 10px;
+    padding: 35px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    background-color: beige;
+}
+
+.event-details p:first-child {
     color: rgb(0, 140, 255);
     font-size: 20px;
 }
@@ -213,13 +241,13 @@ nav button:hover {
 
 }
 
-.popupHeader *{
+.popupHeader * {
 
     margin: 0;
 }
 
 .popupHeader button {
-    margin-top: 10px; 
+    margin-top: 10px;
     margin-left: 20%;
 }
 
@@ -227,6 +255,7 @@ nav button:hover {
     box-sizing: border-box;
 
 }
+
 .popupHeader {
     display: flex;
     flex-direction: column;
@@ -235,22 +264,23 @@ nav button:hover {
 }
 
 #popupContent button {
-   margin-bottom: 50px;
+    margin-bottom: 50px;
 }
 
-#aboutUsBtn  {
+#aboutUsBtn {
     background-color: #3498db;
     color: #fff;
     border-radius: 9px;
     margin-bottom: 2%;
     cursor: pointer;
 }
+
 #returnBtn {
     background-color: #3498db;
     color: #fff;
     border-radius: 9px;
     cursor: pointer;
-    
+
 }
 
 #aboutUsBtn:hover {
@@ -304,14 +334,11 @@ ul {
 }
 
 footer {
-    background-color: rgb(235, 197, 148);
-    border-radius: 15px;
+    background-color: beige;
     margin-top: 15px;
     font-size: 12px;
-    border: 1px solid;
-    margin: 5px;
+    border-radius: 5px;
     margin-top: 15px;
-
 }
 
 footer h1 {
@@ -327,7 +354,7 @@ footer p {
     font-size: 13px;
     font-weight: bold;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    
+
 
 }
 
