@@ -20,6 +20,6 @@ function getEvents($limit, $offset)
 }
 
 // Estas variables tienen valor gracias al AJAX y nos serviran para limitar los eventos por 5 desde la query.
-if (isset($_GET['limit']) && isset($_GET['offset'])) {
-    getEvents($_GET['limit'], $_GET['offset']);
+if (isset($_POST['limit']) && isset($_POST['offset'])) {
+    getEvents($_POST['limit'], $_POST['offset']);
 }

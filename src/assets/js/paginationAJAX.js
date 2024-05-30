@@ -6,7 +6,8 @@ $(document).ready(function() {
     function loadEvents(limit, offset) {
         $.ajax({
             url: "../controller/paginationAJAX.php",
-            type: 'GET',
+            type: "POST",
+            dataType: "JSON",
             data: {
                 // Rellenaoms las variabels tipo GET de nuestro PHP.
                 limit: limit,
@@ -14,7 +15,7 @@ $(document).ready(function() {
             },
             success: function(data) {
                 // La variable events tendra el valor de la repuesta PHP.
-                let events = JSON.parse(data);
+                let events = data;
                 let eventsList = $('#events-list');
                 eventsList.empty();
 
